@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBrandsTable extends Migration
+class CreateTypeServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateBrandsTable extends Migration
      */
     public function up()
     {
-        Schema::create('brands', function (Blueprint $table) {
+        Schema::create('type_services', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('precio')->nullable();
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateBrandsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('brands');
+        Schema::dropIfExists('type_services');
     }
 }

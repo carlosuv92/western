@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use App\ClientDocument;
-use App\Departament;
+use App\Department;
+use App\TypeServices;
 use App\User;
-use App\District;
-use App\Province;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ClientController extends Controller
 {
@@ -29,22 +29,10 @@ class ClientController extends Controller
      */
     public function index()
     {
-        if (\Auth::user()->hasRole('admin')) {
-            return view('admin.visita.index', [
-                'title' => 'Visita',
-                'breadcrumb' => 'crud'
-            ]);
-        } else if (\Auth::user()->hasRole('seller')) {
-            return view('seller.visita.index', [
-                'title' => 'Visita',
-                'breadcrumb' => 'crud'
-            ]);
-        }else if (\Auth::user()->hasRole('super')) {
-            return view('super.visita.index', [
-                'title' => 'Visita',
-                'breadcrumb' => 'crud'
-            ]);
-        }
+        return view('admin.prospect.index', [
+            'title' => 'Prospecto',
+            'breadcrumb' => 'crud'
+        ]);
     }
 
     /**
@@ -55,32 +43,18 @@ class ClientController extends Controller
     public function create()
     {
 
-        $t_docs  = ClientDocument::all();
-        $provincias  = Province::all();
-        $distritos  = District::all();
-        $departamentos  = Departament::all();
+        $documents  = ClientDocument::all();
+        $departments  = Department::all();
         $user  = User::where('id', \Auth::user()->id)->first();
-        if (\Auth::user()->hasRole('admin')) {
-            return view('admin.visita.create', [
-                'provincias' => $provincias,
-                'departamentos' => $departamentos,
-                'distritos' => $distritos,
-                'user' => $user,
-                't_docs' => $t_docs,
-                'title' => 'Contrato',
-                'breadcrumb' => 'crear'
-            ]);
-        } else if (\Auth::user()->hasRole('seller')) {
-            return view('seller.visita.create', [
-                'provincias' => $provincias,
-                'departamentos' => $departamentos,
-                'distritos' => $distritos,
-                'user' => $user,
-                't_docs' => $t_docs,
-                'title' => 'Contrato',
-                'breadcrumb' => 'crear'
-            ]);
-        }
+        $services =  TypeServices::all();
+        return view('admin.prospect.create', [
+            'departments' => $departments,
+            'user' => $user,
+            'documents' => $documents,
+            'services' => $services,
+            'title' => 'Contrato',
+            'breadcrumb' => 'crear'
+        ]);
     }
 
     /**
@@ -104,31 +78,17 @@ class ClientController extends Controller
 
             $client->status = 1;
             $client->name = request('name');
-            $client->user_document = request('t_doc');
+            $client->user_document = request('doc');
             $client->document = request('document');
             $client->phone = request('phone');
-            $client->district = request('district');
-            $client->address = request('address');
-            $client->prioridad = request('prioridad');
-            $client->interesado = request('interesado');
-            $client->fecha_retorno = request('fecha_retorno');
-            $client->comment = request('comment');
-            $client->regis_por = \Auth::user()->id;
+            $client->department = request('department');
+            $client->priority = request('priority');
+            $client->interesting = request('service');
+            $client->lead_by = \Auth::user()->id;
             $client->save();
 
 
-            $client->save();
-            if (\Auth::user()->hasRole('admin')) {
-                return view('admin.visita.index', [
-                    'title' => 'Visita',
-                    'breadcrumb' => 'crear'
-                ]);
-            } else if (\Auth::user()->hasRole('seller')) {
-                return view('seller.visita.index', [
-                    'title' => 'Visita',
-                    'breadcrumb' => 'crear'
-                ]);
-            }
+        return Redirect::route('prospect.index');
         }
     }
 

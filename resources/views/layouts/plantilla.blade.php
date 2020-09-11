@@ -546,13 +546,7 @@
                             </div>
                             <!-- End User Profile-->
                         </li>
-                        @if(Auth::user()->hasRole('admin'))
                         @include('menu.admin')
-                        @elseif (Auth::user()->hasRole('seller'))
-                        @include('menu.seller')
-                        @elseif (Auth::user()->hasRole('super'))
-                        @include('menu.super')
-                        @endif
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

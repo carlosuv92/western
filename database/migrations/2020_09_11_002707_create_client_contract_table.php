@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserRelationsTable extends Migration
+class CreateClientContractTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,24 @@ class CreateUserRelationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_relations', function (Blueprint $table) {
+        Schema::create('client_contract', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user');
-            $table->unsignedBigInteger('supervisor');
+            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('contract_id');
+
+
+            $table->foreign('client_id')
+                ->references('id')->on('clients')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+
+            $table->foreign('contract_id')
+                ->references('id')->on('contracts')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
             $table->timestamps();
-
-            $table->foreign('user')
-                ->references('id')->on('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
-            $table->foreign('supervisor')
-                ->references('id')->on('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
         });
     }
 
@@ -38,6 +41,6 @@ class CreateUserRelationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_relations');
+        Schema::dropIfExists('client_contract');
     }
 }

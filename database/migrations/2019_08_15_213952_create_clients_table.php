@@ -23,42 +23,40 @@ class CreateClientsTable extends Migration
                 ->onDelete('cascade');
 
             $table->string('name');
-            $table->string('negocio');
-            $table->string('giro');
-            $table->string('ruc')->nullable();
 
-            $table->unsignedBigInteger('bank')->nullable();
-            $table->foreign('bank')
-                ->references('id')->on('banks')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
+            $table->string('document')->unique();
             $table->unsignedBigInteger('user_document')->default(1);
             $table->foreign('user_document')
                 ->references('id')->on('client_documents')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table->string('document')->unique();
+            $table->unsignedBigInteger('department')->nullable();
+            $table->foreign('department')
+                ->references('id')->on('departments')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->string('negocio');
+            $table->string('giro');
+            $table->string('ruc')->nullable();
             $table->string('phone')->nullable();
 
-            $table->unsignedBigInteger('district')->nullable();
-            $table->foreign('district')
-                ->references('id')->on('districts')
+
+            $table->enum('priority', ['MUY INTERESADO', 'INTERESADO'])->nullable();
+
+
+            $table->unsignedBigInteger('interesting');
+            $table->foreign('interesting')
+                ->references('id')->on('type_services')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table->unsignedBigInteger('regis_por')->nullable();
-            $table->foreign('regis_por')
+            $table->unsignedBigInteger('lead_by')->nullable();
+            $table->foreign('lead_by')
                 ->references('id')->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table->unsignedBigInteger('vend_por')->nullable();
-            $table->foreign('vend_por')
-                ->references('id')->on('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
             $table->timestamps();
         });
     }

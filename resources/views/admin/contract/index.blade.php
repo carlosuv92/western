@@ -1,7 +1,6 @@
 @extends('layouts.plantilla')
 @push('styles')
 <style>
-
 #cover-spin {
     position:fixed;
     width:100%;
@@ -86,16 +85,12 @@
                                 <th>{{_('Fecha')}}</th>
                                 <th>{{_('Nombre Cliente')}}</th>
                                 <th>{{_('Telefono Cliente')}}</th>
-                                <th>{{_('Negocio')}}</th>
                                 <th>{{_('Documento')}}</th>
+                                <th>{{_('Negocio')}}</th>
                                 <th>{{_('RUC')}}</th>
                                 <th>{{_('Tipo')}}</th>
-                                <th>{{_('Serie')}}</th>
-                                <th>{{_('Orden')}}</th>
-                                <th>{{_('Precio')}}</th>
                                 <th>{{_('Vendedor')}}</th>
                                 <th>{{_('Supervisor')}}</th>
-                                <th>{{_('Lugar')}}</th>
                                 <th style="width:20%">{{_('Opciones')}}</th>
                             </tr>
                         </thead>
@@ -128,12 +123,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="control-label">Seleccionar Vendedor</label>
-                                    <select class="select2 form-control custom-select" style="width: 100%; height:36px;"
-                                        id="seller" name="seller">
-                                        @foreach ($sellers as $w)
-                                        <option value={{$w->iduser}}>{{$w->vendedor}}</option>
-                                        @endforeach
-                                    </select>
+
                                     <small class="form-control-feedback">Seleccionar Vendedor</small>
                                 </div>
                             </div>
@@ -198,16 +188,12 @@
             { 'data': 'fecha'},
             { 'data': 'name'},
             { 'data': 'phone'},
-            { 'data': 'negocio'},
             { 'data': 'document'},
+            { 'data': 'negocio'},
             { 'data': 'ruc'},
             { 'data': 'tipo'},
-            { 'data': 'serie'},
-            { 'data': 'orden'},
-            { 'data': 'precio'},
             { 'data': 'vendedor'},
             { 'data': 'super'},
-            { 'data': 'lugar'},
             { 'defaultContent': '<div style="text-align:center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-cont" id="edit"><i class="ti-pencil"></i></button></div>'},
         ],
         "order": [
@@ -240,70 +226,6 @@
         return id;
     });
     });
-
-
-    $(document).ready(function () {
-        $(".rem #ajaxSubmit").on('click',enviaDataVendedor);
-        jQuery.ajaxSetup({
-        beforeSend: function() {
-            $('#cover-spin').show();
-        },
-        complete: function(){
-            $('#cover-spin').hide();
-        },
-        success: function() {}
-        });
-
-    });
-
-    function enviaDataVendedor(h){
-    h.preventDefault();
-    var url4 = "{{route('contract.avendedor')}}";
-    swal({
-        title: 'Estas segura de activar?',
-        text: 'Piensalo y continua!',
-        icon: 'warning',
-        buttons: {
-            cancel: {
-                text: 'No, cancela plx!',
-                value: null,
-                visible: true,
-                className: "",
-                closeModal: false
-            },
-            confirm: {
-                text: 'Si, Actualizalo!',
-                value: true,
-                visible: true,
-                className: "bg-success",
-                closeModal: false
-            }
-        }
-    }).then(function(isConfirm) {
-        if (isConfirm) {
-            $.ajax({
-            cache: false,
-            url: url4,        // Only URL changed from your code
-            method: 'POST',
-            data: {"_token": "{{ csrf_token() }}",data:$('.rem #modalForm').serialize()},
-            success: function (data) {
-                $('.rem #close-modal-info').click()
-                $('.rem #modalForm').trigger("reset");
-                swal('Felicidades!', 'El Usuario fue Actualizado.', 'success');
-                table.ajax.reload();
-            },
-            error: function(result) {
-                swal('Cancelado', 'Completa todos los cuadros', 'error');
-            },
-        });
-        } else {
-            $('.rem #close-modal-info').click()
-            swal('Cancelado', 'Aqui no paso nada! :)', 'error');
-        }
-    });
-
-};
-
 
 
 </script>

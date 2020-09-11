@@ -41,16 +41,10 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Ciudad</label>
-                                <select class="form-control custom-select" name="address">
-                                    <option value="35">AREQUIPA</option>
-                                    <option value="25">CHIMBOTE</option>
-                                    <option value="122">TRUJILLO</option>
-                                    <option value="99">ICA</option>
-                                    <option value="124">CHICLAYO</option>
-                                    <option value="135">LIMA</option>
-                                    <option value="106">HUANCAYO</option>
-                                    <option value="157">PIURA</option>
-                                    </option>
+                                <select class="form-control custom-select" name="department">
+                                    @foreach ($departments as $dep)
+                                    <option value={{$dep->id}}>{{$dep->name}}</option>
+                                    @endforeach
                                 </select>
                                 <small class="form-control-feedback"> Seleccione Ciudad</small>
                             </div>
@@ -85,7 +79,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Rol</label>
-                                <select class="form-control custom-select" name="role">
+                                <select class="form-control custom-select" id="role" name="role">
+                                    <option value="" selected disabled hidden>ELIGE UN ROL</option>
                                     @foreach ($roles as $role)
                                     <option value="{{$role->id}}">{{$role->description}}</option>
                                     @endforeach
@@ -97,7 +92,8 @@
                         <div class="col-md-6">
                             <div class="form-group s">
                                 <label class="control-label">Supervisor</label>
-                                <select class="form-control custom-select" name="supervisor">
+                                <select class="form-control custom-select" id="supervisor" name="supervisor" disabled>
+                                    <option value="" selected disabled hidden>ELIGE SUPERVISOR</option>
                                     @foreach ($supervisors as $supervisor)
                                     <option value="{{$supervisor->id}}">{{$supervisor->surname}} {{$supervisor->name}}
                                     </option>
@@ -126,3 +122,19 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    $( "#role" ).change(function() {
+        var role = this.value;
+        if(role == 3){
+            $("#supervisor").prop('required',true);
+            $("#supervisor").prop('disabled',false);
+        }else{
+            $("#supervisor").prop('required',false);
+            $("#supervisor").prop('disabled',true);
+        }
+
+    });
+</script>
+@endpush

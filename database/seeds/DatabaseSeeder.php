@@ -14,12 +14,12 @@ class DatabaseSeeder extends Seeder
 
         $this->call(TypeDocumentTableSeeder::class);
 
+        $this->call(DatosTableSeeder::class);
+
         // La creación de datos de roles debe ejecutarse primero
         $this->call(RoleTableSeeder::class);
 
         // Los usuarios necesitarán los roles previamente generados
         $this->call(UserTableSeeder::class);
-
-        $this->call(DatosContratoSeed::class);
     }
 }

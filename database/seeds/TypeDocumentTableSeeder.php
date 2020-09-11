@@ -12,49 +12,24 @@ class TypeDocumentTableSeeder extends Seeder
     public function run()
     {
         $current_date = date("Y-m-d H:i:s");
-        $name = ['DNI', 'RUC SIN NEGOCIO', 'RUC CON NEGOCIO','CE'];
 
-        for ($i = 0; $i < count($name); $i++) {
+        $t_doc = ['DNI', 'PASAPORTE', 'PTP', 'CEDULA', 'OTRO'];
+
+        for ($i = 0; $i < count($t_doc); $i++) {
             DB::table('type_documents')->insert([
                 'id' => $i + 1,
-                'name' => $name[$i],
-                'description' => $name[$i],
+                'name' => $t_doc[$i],
                 'updated_at' => $current_date,
                 'created_at' => $current_date,
             ]);
         }
 
-        $names = ['DNI','PASAPORTE','PTP','CEDULA'];
+        $c_doc = ['DNI', 'RUC', 'CE'];
 
-        for ($i = 0; $i < count($names); $i++) {
-            DB::table('document_users')->insert([
+        for ($i = 0; $i < count($c_doc); $i++) {
+            DB::table('client_documents')->insert([
                 'id' => $i + 1,
-                'name' => $names[$i],
-                'description' => $names[$i],
-                'updated_at' => $current_date,
-                'created_at' => $current_date,
-            ]);
-        }
-
-        $names = ['ASISTIO','TARDANZA','FALTO','PERMISO'];
-
-        for ($i = 0; $i < count($names); $i++) {
-            DB::table('attendances')->insert([
-                'id' => $i + 1,
-                'name' => $names[$i],
-                'description' => $names[$i],
-                'updated_at' => $current_date,
-                'created_at' => $current_date,
-            ]);
-        }
-
-        $names = ['ASIGNADA','ANULADA'];
-
-        for ($i = 0; $i < count($names); $i++) {
-            DB::table('type_guides')->insert([
-                'id' => $i + 1,
-                'name' => $names[$i],
-                'description' => $names[$i],
+                'name' => $c_doc[$i],
                 'updated_at' => $current_date,
                 'created_at' => $current_date,
             ]);

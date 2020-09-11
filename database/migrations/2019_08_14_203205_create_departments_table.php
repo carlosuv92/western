@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTypeCivilsTable extends Migration
+class CreateDepartmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateTypeCivilsTable extends Migration
      */
     public function up()
     {
-        Schema::create('type_civils', function (Blueprint $table) {
+        Schema::create('departments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 25);
+            $table->string('name');
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateTypeCivilsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_civils');
+        Schema::dropIfExists('departments');
     }
 }

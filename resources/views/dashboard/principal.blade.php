@@ -36,7 +36,7 @@
                         <div class="d-flex no-block align-items-center">
                             <div>
                                 <div class="d-flex">
-                                    <h3>{{$contracts['trujillo']}}</h3>
+                                    <h3>0</h3>
                                     <h6>MES</h6>
                                 </div>
                                 <h6 class="card-subtitle">TRUJILLO</h6>
@@ -68,7 +68,7 @@
                         <div class="d-flex no-block align-items-center">
                             <div>
                                 <div class="d-flex">
-                                    <h3>{{$contracts['chimbote']}}</h3>
+                                    <h3>0</h3>
                                     <h6>MES</h6>
                                 </div>
                                 <h6 class="card-subtitle">CHIMBOTE</h6>
@@ -101,7 +101,7 @@
                         <div class="d-flex no-block align-items-center">
                             <div>
                                 <div class="d-flex">
-                                    <h3>{{$contracts['chiclayo']}}</h3>
+                                    <h3>0</h3>
                                     <h6>MES</h6>
                                 </div>
                                 <h6 class="card-subtitle">CHICLAYO</h6>
@@ -133,7 +133,7 @@
                         <div class="d-flex no-block align-items-center">
                             <div>
                                 <div class="d-flex">
-                                    <h3>{{$contracts['ica']}}</h3>
+                                    <h3>0</h3>
                                     <h6>MES</h6>
                                 </div>
                                 <h6 class="card-subtitle">ICA</h6>
@@ -169,7 +169,7 @@
                         <div class="d-flex no-block align-items-center">
                             <div>
                                 <div class="d-flex">
-                                    <h3>{{$dias['trujillo']}}</h3>
+                                    <h3>0</h3>
                                     <h6>DIA</h6>
                                 </div>
                                 <h6 class="card-subtitle" style="color: white;">TRUJILLO</h6>
@@ -201,7 +201,7 @@
                         <div class="d-flex no-block align-items-center">
                             <div>
                                 <div class="d-flex">
-                                    <h3>{{$dias['chimbote']}}</h3>
+                                    <h3>0</h3>
                                     <h6>DIA</h6>
                                 </div>
                                 <h6 class="card-subtitle" style="color: white;">CHIMBOTE</h6>
@@ -233,7 +233,7 @@
                         <div class="d-flex no-block align-items-center">
                             <div>
                                 <div class="d-flex">
-                                    <h3>{{$dias['chiclayo']}}</h3>
+                                    <h3>0</h3>
                                     <h6>DIA</h6>
                                 </div>
                                 <h6 class="card-subtitle" style="color: white;">CHICLAYO</h6>
@@ -265,7 +265,7 @@
                         <div class="d-flex no-block align-items-center">
                             <div>
                                 <div class="d-flex">
-                                    <h3>{{$dias['ica']}}</h3>
+                                    <h3>0</h3>
                                     <h6>DIA</h6>
                                 </div>
                                 <h6 class="card-subtitle" style="color: white;">ICA</h6>
@@ -329,9 +329,7 @@
                         <h5 class="card-title">Total Monto Vendido</h5>
                         <div class="d-flex no-block">
                             <div class="align-self-center no-shrink">
-                                <h3 class="m-b-0">S/.{{$cash_tot}}.00</h3>
-                                {{--<h6 style="color:darkred;">S/.{{$cash_pre}} Jr.</h6>
-                                <h6 style="color:darkred;">S/.{{$cash_pro}} Pro</h6>--}}
+                                <h3 class="m-b-0">S/.0.00</h3>
                                 <h6 style="color:darkgreen;">LIQUIDADO : S/.0.00</h6>
                                 <h6 style="color:darkred;">PENDIENTE : S/.0.00</h6>
                             </div>
@@ -347,17 +345,15 @@
                 <div class="card bg-light-success no-card-border">
                     <div class="card-body">
                         <h5 class="card-title">Proyeccion de Ventas</h5>
-                        <h6>HC: {{$usuarios}} </h6>
+                        <h6>HC: 0 </h6>
                         <h6>Departamentos: 6 </h6>
                         <div class="d-flex no-block" style="height: 110px;">
                             <div class="align-self-end no-shrink">
                                 <h5 style="color:darkgreen;" class="m-b-0">
-                                    {{$contracts['arequipa']+$contracts['ica']+$contracts['trujillo']+$contracts['chimbote']}}
-                                    produccion.</h5>
-                                <h5 style="color:darkred;" class="m-b-0">{{$cuota}} necesarias.</h5>
+                                    0 produccion.</h5>
+                                <h5 style="color:darkred;" class="m-b-0">0 necesarias.</h5>
                                 <h6 style="color:darkred;">
-                                    ({{$totcontratos['cuota']-5}}-{{$totcontratos['cuota']}}
-                                    Ventas)
+                                    0 Ventas)
                                 </h6>
                             </div>
                             <div class="ml-auto">
@@ -436,11 +432,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($querys as $q)
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="m-r-10">
+                                    {{--
                                         @if ($q->zona=="AREQUIPA")
                                         <a class="btn btn-circle btn-warning text-white">AQ</a>
                                         @elseif ($q->zona=="TRUJILLO")
@@ -452,30 +448,17 @@
                                         @elseif ($q->zona=="CHICLAYO")
                                         <a class="btn btn-circle btn-purple text-white">CC</a>
                                         @endif
+                                    --}}
                                     </div>
                                     <div class="">
-                                        <h4 class="m-b-0 font-16">{{$q->full_name}}</h4>
+                                        <h4 class="m-b-0 font-16">NOMBRE DE VENDEDOR</h4>
                                     </div>
                                 </div>
                             </td>
-                            <td style="text-align:center;">{{$q->total}}</td>
-                            <td style="text-align:center;">{{$q->suma}}</td>
-                            <td style="text-align:center;">
-                                @if ($q->zona=="AREQUIPA")
-                                <label class="label label-warning">{{$q->zona}}</label>
-                                @elseif ($q->zona=="TRUJILLO")
-                                <label class="label label-info">{{$q->zona}}</label>
-                                @elseif ($q->zona=="ICA")
-                                <label class="label label-danger">{{$q->zona}}</label>
-                                @elseif ($q->zona=="CHIMBOTE")
-                                <label class="label label-success">{{$q->zona}}</label>
-                                @elseif ($q->zona=="CHICLAYO")
-                                <label class="label label-purple">{{$q->zona}}</label>
-                                @endif
-
-                            </td>
+                            <td style="text-align:center;">0</td>
+                            <td style="text-align:center;">0</td>
+                            <td style="text-align:center;">0</td>
                         </tr>
-                        @endforeach
 
                     </tbody>
                 </table>
@@ -483,7 +466,6 @@
         </div>
     </div>
 </div>
-@include('dashboard.config')
 @endsection
 @push('scripts')
 <script>
@@ -623,9 +605,9 @@ var chart = c3.generate({
 bindto: '#income',
 data: {
 columns: [
-['SERVICIOS', {{$pocket['trujillo']}}, {{$pocket['chimbote']}}, {{$pocket['trujillo']}}, {{$pocket['chimbote']}}],
-['REMESAS', {{$pro['trujillo']}}, {{$pro['chimbote']}}, {{$pro['trujillo']}}, {{$pro['chimbote']}}],
-['AMBOS', {{$otros['trujillo']}}, {{$otros['chimbote']}}, {{$otros['trujillo']}}, {{$otros['chimbote']}}]
+['SERVICIOS', 0, 0, 0, 0],
+['REMESAS', 0, 0, 0, 0],
+['AMBOS', 0,0, 0,0]
 ],
 type: 'bar',
 },
@@ -674,7 +656,7 @@ pattern: ['#22c6ab', '#4798e8', '#ffbc34']
 var chart = c3.generate({
 bindto: '#sales',
 data: {
-columns: [ ['Pocket Jr', {{$pre_pocket}}], ['Pocket Pro', {{$pro_pocket}}],['POS', {{$pos_otros}}]],
+columns: [ ['Pocket Jr', 0], ['Pocket Pro', 0],['POS', 0]],
 
 type: 'donut',
 onclick: function(d, i) {
@@ -713,7 +695,7 @@ pattern: [ '#ffbc34', '#24d2b5', '#20aee3']
 var chart = c3.generate({
 bindto: '#prediction',
 data: {
-columns: [['TERMINARA AL:', {{$percent['proyectado']}}]],
+columns: [['TERMINARA AL:', 0]],
 type: 'gauge',
 onclick: function(d, i) {
 console.log('onclick', d, i);
