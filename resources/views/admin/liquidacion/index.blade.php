@@ -26,8 +26,8 @@
                     <table id="p_contratos" class="table table-striped table-bordered" style="width:100%;">
                         <thead>
                             <tr>
-                                <th>{{_('CIUDAD')}}</th>
-                                <th>{{_('MONTO')}}</th>
+                                <th>CIUDAD</th>
+                                <th>MONTO</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,17 +54,17 @@
                         <table id="l_contratos" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th>{{_('ID')}}</th>
-                                    <th>{{_('Fecha')}}</th>
-                                    <th>{{_('Nombre Cliente')}}</th>
-                                    <th>{{_('Documento')}}</th>
-                                    <th>{{_('Telefono')}}</th>
-                                    <th>{{_('Tipo')}}</th>
-                                    <th>{{_('Modelo')}}</th>
-                                    <th>{{_('A Pagar')}}</th>
-                                    <th>{{_('Pagado')}}</th>
-                                    <th>{{_('Asesor')}}</th>
-                                    <th>{{_('Supervisor')}}</th>
+                                    <th>ID</th>
+                                    <th>Fecha</th>
+                                    <th>Nombre Cliente</th>
+                                    <th>Documento</th>
+                                    <th>Telefono</th>
+                                    <th>Tipo</th>
+                                    <th>Modelo</th>
+                                    <th>A Pagar</th>
+                                    <th>Pagado</th>
+                                    <th>Asesor</th>
+                                    <th>Supervisor</th>
                                 </tr>
                             </thead>
                             <tbody>

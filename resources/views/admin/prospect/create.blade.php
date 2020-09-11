@@ -20,29 +20,7 @@
                         </div>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label for="validationCustom02">Tipo</label>
-                        <select class="form-control custom-select" id="doc" name="doc">
-                            @foreach ($documents as $doc)
-                            <option value="{{$doc->id}}">{{$doc->name}}</option>
-                            @endforeach
-                        </select>
-                        <div class="valid-feedback">
-                            Genial!
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="validationCustom02">Documento</label>
-                        <input type="text" class="form-control" id="document" name="document" placeholder="Documento"
-                            required>
-                        <div class="valid-feedback">
-                            Genial!
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-row m-t-15">
-                    <div class="col-md-3 mb-3">
-                        <label for="validationCustom03">Telefono 1</label>
+                        <label for="validationCustom03">TELEFONO</label>
                         <input type="text" class="form-control" id="phone" name="phone" placeholder="Celular" required>
                         <div class="invalid-feedback">
                             Ingresa Telefono.
@@ -60,45 +38,47 @@
                         </div>
                     </div>
 
-                <div class="col-md-6 mb-3">
-                    <label for="validationCustom04">Direccion</label>
-                    <input type="text" class="form-control" id="validationCustom04" id="address" name="address"
-                        required>
-                    <div class="invalid-feedback">
-                        Ingresa Direccion.
-                    </div>
-                </div>
-            </div>
 
-            <div class="form-row m-t-15">
-                <div class="col-md-3 mb-3">
-                    <label for="validationCustom03">TIPO SERVICIO</label>
-                    <select class="form-control custom-select" id="service" name="service">
-                        @foreach ($services as $serv)
-                        <option value="{{$serv->id}}">{{$serv->name}}</option>
-                        @endforeach
-                    </select>
-                    <div class="invalid-feedback">
-                        Ingresa Telefono.
+                </div>
+
+                <div class="form-row m-t-15">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom04">DIRECCION</label>
+                        <input type="text" class="form-control" id="validationCustom04" id="address" name="address"
+                            required>
+                        <div class="invalid-feedback">
+                            Ingresa Direccion.
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="validationCustom02">PRIORIDAD</label>
+                        <select class="form-control custom-select" id="priority" name="priority">
+                            <option value="1">MUY INTERESADO</option>
+                            <option value="2">INTERESADO</option>
+                        </select>
+                        <div class="valid-feedback">
+                            Genial!
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="validationCustom03">VENDEDOR</label>
+                        <select class="form-control custom-select" id="seller" name="seller">
+                            @foreach ($sellers as $seller)
+                            <option value="{{$seller->id}}">{{$seller->surname}} {{$seller->name}}</option>
+                            @endforeach
+                        </select>
+                        <div class="invalid-feedback">
+                            Ingresa Telefono.
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-3">
-                    <label for="validationCustom02">PRIORIDAD</label>
-                    <select class="form-control custom-select" id="priority" name="priority">
-                        <option value="1">MUY INTERESADO</option>
-                        <option value="2">INTERESADO</option>
-                    </select>
-                    <div class="valid-feedback">
-                        Genial!
-                    </div>
-                </div>
+
+                <button class="btn btn-primary" type="submit">CREAR PROSPECTO</button>
             </div>
-            <button class="btn btn-primary" type="submit">CREAR PROSPECTO</button>
         </div>
-</div>
-</form>
-<script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    </form>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
             (function() {
                 'use strict';
                 window.addEventListener('load', function() {
@@ -117,6 +97,6 @@
                 }, false);
             })();
 
-</script>
+    </script>
 </div>
 @endsection

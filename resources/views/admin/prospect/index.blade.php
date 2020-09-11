@@ -52,14 +52,12 @@
                     <table id="t_prospect" class="table table-striped table-bordered" width="100%">
                         <thead>
                             <tr>
-                                <th>{{_('ID')}}</th>
-                                <th>{{_('Creado')}}</th>
-                                <th>{{_('Asesor')}}</th>
-                                <th>{{_('Nombre Cliente')}}</th>
-                                <th>{{_('Documento')}}</th>
-                                <th>{{_('Celular')}}</th>
-                                <th>{{_('Prioridad')}}</th>
-                                <th>{{_('Producto Interesado')}}</th>
+                                <th>ID</th>
+                                <th>Creado</th>
+                                <th>Asesor</th>
+                                <th>Nombre Cliente</th>
+                                <th>Celular</th>
+                                <th>Nivel Interes</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -104,10 +102,8 @@ jQuery.ajaxSetup({
             { 'data': 'created_at'},
             { 'data': 'seller'},
             { 'data': 'name'},
-            { 'data': 'document'},
             { 'data': 'phone'},
             { 'data': 'priority'},
-            { 'data': 'service'},
         ],
         "order": [
             [0, "desc"]

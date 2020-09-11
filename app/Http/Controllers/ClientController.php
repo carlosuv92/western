@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Client;
-use App\ClientDocument;
 use App\Department;
-use App\TypeServices;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
 {
@@ -42,16 +41,17 @@ class ClientController extends Controller
      */
     public function create()
     {
-
-        $documents  = ClientDocument::all();
         $departments  = Department::all();
         $user  = User::where('id', \Auth::user()->id)->first();
-        $services =  TypeServices::all();
+
+        $sellers = User::whereHas('roles', function ($q) {
+            $q->where('name', 'seller');
+        })->orderBy('surname', 'asc')->where('active', 1)->get();
+
         return view('admin.prospect.create', [
             'departments' => $departments,
             'user' => $user,
-            'documents' => $documents,
-            'services' => $services,
+            'sellers' => $sellers,
             'title' => 'Contrato',
             'breadcrumb' => 'crear'
         ]);
@@ -74,21 +74,27 @@ class ClientController extends Controller
             ]);
         } else {
 
-            $client = new Client();
+            DB::beginTransaction();
+            try {
 
-            $client->status = 1;
-            $client->name = request('name');
-            $client->user_document = request('doc');
-            $client->document = request('document');
-            $client->phone = request('phone');
-            $client->department = request('department');
-            $client->priority = request('priority');
-            $client->interesting = request('service');
-            $client->lead_by = \Auth::user()->id;
-            $client->save();
+                $client = new Client();
 
+                $client->status = 1;
+                $client->name = request('name');
+                $client->phone = request('phone');
+                $client->department = request('department');
+                $client->priority = request('priority');
+                $client->address = request('address');
+                $client->lead_by = \Auth::user()->id;
+                $client->save();
 
-        return Redirect::route('prospect.index');
+                DB::commit();
+            } catch (\Exception $ex) {
+                DB::rollBack();
+                throw $ex;
+            }
+
+            return Redirect::route('prospect.index');
         }
     }
 

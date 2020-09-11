@@ -10,9 +10,8 @@ use App\ClientContract;
 use App\TypeServices;
 use App\User;
 use App\UserRelation;
-use DB;
-use App\WarehousePocket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class ContractController extends Controller
@@ -33,7 +32,7 @@ class ContractController extends Controller
      */
     public function index()
     {
-        $sellers = \DB::table('users')
+        $sellers = DB::table('users')
             ->leftJoin('user_relations as ur', 'ur.user', '=', 'users.id')
             ->leftJoin('role_user as ru', 'ru.user_id', '=', 'users.id')
             ->select('users.id as iduser', DB::raw('CONCAT(users.surname, " ", users.name) AS vendedor'))
@@ -98,7 +97,7 @@ class ContractController extends Controller
                 $client->giro = request('giro');
                 $client->negocio = request('negocio');
                 $client->phone = request('phone');
-                $client->interesting = request('service');
+                $client->address = request('address');
                 $client->lead_by = request('seller');
                 $client->department = request('department');
                 $client->save();

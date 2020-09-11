@@ -16,14 +16,12 @@ class ConsultasController extends Controller
     public function getProspect()
     {
         $querys = \DB::table('clients')
-            ->leftJoin('type_services as ts', 'ts.id', '=', 'clients.interesting')
             ->leftJoin('client_statuses', 'client_statuses.id', '=', 'clients.status')
             ->leftJoin('user_relations', 'user_relations.user', '=', 'clients.lead_by')
             ->leftJoin('users as b', 'b.id', '=', 'clients.lead_by')
             ->select(
                 'clients.*',
                 'clients.department AS department',
-                'ts.name as service',
                 DB::raw('CONCAT(b.surname, " ", b.name) AS seller')
             )
             ->where('clients.status', 1)

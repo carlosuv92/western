@@ -65,7 +65,15 @@
                             Ingresa Telefono.
                         </div>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-3 mb-3">
+                        <label for="validationCustom02">GIRO NEGOCIO</label>
+                        <input type="text" class="form-control" placeholder="GIRO NEGOCIO" id="giro" name="giro"
+                            required>
+                        <div class="valid-feedback">
+                            Genial!
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
                         <label for="validationCustom02">NOMBRE NEGOCIO</label>
                         <input type="text" class="form-control" placeholder="NEGOCIO" id="negocio" name="negocio"
                             required>
@@ -73,12 +81,13 @@
                             Genial!
                         </div>
                     </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="validationCustom02">GIRO NEGOCIO</label>
-                        <input type="text" class="form-control" placeholder="GIRO NEGOCIO" id="giro" name="giro"
+
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom04">DIRECCION</label>
+                        <input type="text" class="form-control" id="validationCustom04" id="address" name="address"
                             required>
-                        <div class="valid-feedback">
-                            Genial!
+                        <div class="invalid-feedback">
+                            Ingresa Direccion.
                         </div>
                     </div>
 

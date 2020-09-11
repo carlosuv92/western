@@ -81,17 +81,17 @@
                     <table id="t_contratos" class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>{{_('ID')}}</th>
-                                <th>{{_('Fecha')}}</th>
-                                <th>{{_('Nombre Cliente')}}</th>
-                                <th>{{_('Telefono Cliente')}}</th>
-                                <th>{{_('Documento')}}</th>
-                                <th>{{_('Negocio')}}</th>
-                                <th>{{_('RUC')}}</th>
-                                <th>{{_('Tipo')}}</th>
-                                <th>{{_('Vendedor')}}</th>
-                                <th>{{_('Supervisor')}}</th>
-                                <th style="width:20%">{{_('Opciones')}}</th>
+                                <th style="display: none;">ID</th>
+                                <th>Fecha</th>
+                                <th>Nombre Cliente</th>
+                                <th>Telefono Cliente</th>
+                                <th>Documento</th>
+                                <th>Negocio</th>
+                                <th>RUC</th>
+                                <th>Tipo</th>
+                                <th>Vendedor</th>
+                                <th>Supervisor</th>
+                                <th style="width:20%; display: none;">Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -184,7 +184,7 @@
             'dataType': 'json',
             'type': 'get'
         },'columns': [
-            { 'data': 'idcont'},
+            { 'data': 'idcont',"visible": false},
             { 'data': 'fecha'},
             { 'data': 'name'},
             { 'data': 'phone'},
@@ -194,7 +194,7 @@
             { 'data': 'tipo'},
             { 'data': 'vendedor'},
             { 'data': 'super'},
-            { 'defaultContent': '<div style="text-align:center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-cont" id="edit"><i class="ti-pencil"></i></button></div>'},
+            { 'defaultContent': '<div style="text-align:center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-cont" id="edit"><i class="ti-pencil"></i></button></div>',"visible": false},
         ],
         "order": [
             [0, "desc"]

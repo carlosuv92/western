@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
 use App\Contract;
-use App\User;
-use App\Role;
-use App\UserRelation;
-use App\WarehousePocket;
 use Yajra\Datatables\Datatables;
 
 class HomeController extends Controller

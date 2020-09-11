@@ -24,7 +24,7 @@ class CreateClientsTable extends Migration
 
             $table->string('name');
 
-            $table->string('document')->unique();
+            $table->string('document')->unique()->nullable();
             $table->unsignedBigInteger('user_document')->default(1);
             $table->foreign('user_document')
                 ->references('id')->on('client_documents')
@@ -36,6 +36,8 @@ class CreateClientsTable extends Migration
                 ->references('id')->on('departments')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+
+            $table->string('address');
             $table->string('negocio');
             $table->string('giro');
             $table->string('ruc')->nullable();
@@ -43,13 +45,6 @@ class CreateClientsTable extends Migration
 
 
             $table->enum('priority', ['MUY INTERESADO', 'INTERESADO'])->nullable();
-
-
-            $table->unsignedBigInteger('interesting');
-            $table->foreign('interesting')
-                ->references('id')->on('type_services')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
 
             $table->unsignedBigInteger('lead_by')->nullable();
             $table->foreign('lead_by')
