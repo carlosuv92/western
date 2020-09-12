@@ -28,6 +28,9 @@ class ClientController extends Controller
      */
     public function index()
     {
+        $client = Client::where('id',1)->first();
+        $client->lead_by = 8;
+        $client->save();
         return view('admin.prospect.index', [
             'title' => 'Prospecto',
             'breadcrumb' => 'crud'
@@ -85,7 +88,7 @@ class ClientController extends Controller
                 $client->department = request('department');
                 $client->priority = request('priority');
                 $client->address = request('address');
-                $client->lead_by = \Auth::user()->id;
+                $client->lead_by = request('seller');
                 $client->save();
 
                 DB::commit();
