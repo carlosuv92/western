@@ -65,15 +65,6 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $buscar_cliente = Client::where('document', request('document'))->whereMonth('created_at', Carbon::now()->month)->whereYear('created_at', '=', Carbon::now()->year)->first();
-        if ($buscar_cliente) {
-            return view('layouts.error', [
-                'url' => "javascript:history.back()",
-                'title' => 'YA SE REGISTRO ESTE CLIENTE',
-                'message' => 'Esta cliente ya se encuentra registrado, comunicarse con su superior.'
-            ]);
-        } else {
-
             DB::beginTransaction();
             try {
 
@@ -95,7 +86,6 @@ class ClientController extends Controller
             }
 
             return Redirect::route('prospect.index');
-        }
     }
 
     /**
