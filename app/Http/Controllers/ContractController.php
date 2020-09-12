@@ -108,7 +108,7 @@ class ContractController extends Controller
             $contract->back_office = \Auth::id();
             $contract->type_service = request('service');
             $contract->seller = request('seller');
-            $client->department = request('department');
+            $contract->department = request('department');
             $contract->supervisor_seller = UserRelation::where('user', $contract->seller)->first()->supervisor;
             $contract->save();
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Client;
 use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
@@ -30,10 +31,53 @@ class HomeController extends Controller
     {
         $request->user()->authorizeRoles(['user', 'admin']);
 
-        $totcontratos['mes'] = Contract::whereMonth('created_at', '=', Carbon::now()->month)->whereYear('created_at', '=', Carbon::now()->year)->whereIn('status', ['1'])->count();
+        $contratos['mes'] = DB::table('departments')
+            ->leftJoin('clients', function ($join) {
+                $join->on('clients.department', '=', 'departments.id')
+                    ->where('clients.status', '2')
+                    ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
+            })
+            ->select('departments.name', DB::raw("count(clients.id) as total"))
+            ->groupBy('departments.name')
+            ->get();
+
+        $contratos['dia'] = DB::table('departments')
+            ->leftJoin('clients', function ($join) {
+                $join->on('clients.department', '=', 'departments.id')
+                    ->where('clients.status', '2')->whereDay('clients.created_at', '=', Carbon::now()->day)
+                    ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
+            })
+            ->select('departments.name', DB::raw("count(clients.id) as total"))
+            ->groupBy('departments.name')
+            ->get();
+
+        /*PROSPECTOS*/
+        //SELECT d.name, count(w.id) FROM departments d left join clients w on  d.id =w.department and w.status=1 group by 1;
+
+        $prospectos['mes'] = DB::table('departments')
+            ->leftJoin('clients', function ($join) {
+                $join->on('clients.department', '=', 'departments.id')
+                    ->where('clients.status', '1')
+                    ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
+            })
+            ->select('departments.name', DB::raw("count(clients.id) as total"))
+            ->groupBy('departments.name')
+            ->get();
+
+        $prospectos['dia'] = DB::table('departments')
+            ->leftJoin('clients', function ($join) {
+                $join->on('clients.department', '=', 'departments.id')
+                    ->where('clients.status', '1')->whereDay('clients.created_at', '=', Carbon::now()->day)
+                    ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
+            })
+            ->select('departments.name', DB::raw("count(clients.id) as total"))
+            ->groupBy('departments.name')
+            ->get();
+
 
         return view('dashboard.principal', [
-            'totcontratos' => $totcontratos,
+            'contratos' => $contratos,
+            'prospectos' => $prospectos,
             'title' => 'Dashboard',
             'breadcrumb' => 'admin'
         ]);

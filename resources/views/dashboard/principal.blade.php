@@ -9,83 +9,436 @@
     </div>
 </div>
 <br>--}}
-<div class="row">
-    <div class="col-12">
-        <div class="d-flex no-block" style="padding-bottom: 1.25em;">
-            <div>
-                <h4 class="d-md-flex align-items-center"></h4>
+
+<div class="card-body" style="background-color: #ff98008a">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex no-block" style="padding-bottom: 1.25em;">
+                <div>
+                    <h4 class="d-md-flex align-items-center">VENTAS WESTERN UNION</h4>
+                </div>
+                <div class="ml-auto">
+                    <div class="dl">
+                        <select class="custom-select" id="cambio_card">
+                            <option value="0">Mensual</option>
+                            <option value="1">Diario</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-            <div class="ml-auto">
-                <div class="dl">
-                    <select class="custom-select" id="cambio_card">
-                        <option value="0">Mensual</option>
-                        <option value="1">Diario</option>
-                    </select>
+        </div>
+    </div>
+    <div class="row" id="mes">
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <div class="d-flex">
+                                        <h3>{{$contratos['mes'][4]->total}}</h3>
+                                        <h6>MES</h6>
+                                    </div>
+                                    <h6 class="card-subtitle">{{$contratos['mes'][4]->name}}</h6>
+                                </div>
+                                <div class="ml-auto">
+                                    <span class="text-success display-6"><img class="rounded-circle float-right"
+                                            style="margin-top:-50%;"
+                                            src="{{asset('files/assets/images/icons-dashboard/trujillo.png')}}"
+                                            width='48px' height='48px' />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-cyan" role="progressbar" style="width: 56%; height: 6px;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <div class="d-flex">
+                                        <h3>{{$contratos['mes'][1]->total}}</h3>
+                                        <h6>MES</h6>
+                                    </div>
+                                    <h6 class="card-subtitle">{{$contratos['mes'][1]->name}}</h6>
+                                </div>
+                                <div class="ml-auto">
+                                    <span class="text-success display-6"><img class="rounded-circle float-right"
+                                            style="margin-top:-50%;"
+                                            src="{{asset('files/assets/images/icons-dashboard/chimbote.png')}}"
+                                            width='48px' height='48px' />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <div class="d-flex">
+                                        <h3>{{$contratos['mes'][0]->total}}</h3>
+                                        <h6>MES</h6>
+                                    </div>
+                                    <h6 class="card-subtitle">{{$contratos['mes'][0]->name}}</h6>
+                                </div>
+                                <div class="ml-auto">
+                                    <span class="text-success display-6"><img class="rounded-circle float-right"
+                                            style="margin-top:-50%;"
+                                            src="{{asset('files/assets/images/icons-dashboard/chiclayo.png')}}"
+                                            width='48px' height='48px' />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <div class="d-flex">
+                                        <h3>{{$contratos['mes'][2]->total}}</h3>
+                                        <h6>MES</h6>
+                                    </div>
+                                    <h6 class="card-subtitle">{{$contratos['mes'][2]->name}}</h6>
+                                </div>
+                                <div class="ml-auto">
+                                    <span class="text-success display-6"><img class="rounded-circle float-right"
+                                            style="margin-top:-50%;"
+                                            src="{{asset('files/assets/images/icons-dashboard/ica.png')}}" width='48px'
+                                            height='48px' />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="display: none;" id="dia">
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body" style="background: #607D8B;color: white;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <div class="d-flex">
+                                        <h3>{{$contratos['dia'][4]->total}}</h3>
+                                        <h6>DIA</h6>
+                                    </div>
+                                    <h6 class="card-subtitle" style="color: white;">{{$contratos['dia'][4]->name}}</h6>
+                                </div>
+                                <div class="ml-auto">
+                                    <span class="text-success display-6"><img class="rounded-circle float-right"
+                                            style="margin-top:-50%;"
+                                            src="{{asset('files/assets/images/icons-dashboard/trujillo.png')}}"
+                                            width='48px' height='48px' />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-cyan" role="progressbar" style="width: 56%; height: 6px;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body" style="background: #607D8B;color: white;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <div class="d-flex">
+                                        <h3>{{$contratos['dia'][1]->total}}</h3>
+                                        <h6>DIA</h6>
+                                    </div>
+                                    <h6 class="card-subtitle" style="color: white;">{{$contratos['dia'][1]->name}}</h6>
+                                </div>
+                                <div class="ml-auto">
+                                    <span class="text-success display-6"><img class="rounded-circle float-right"
+                                            style="margin-top:-50%;"
+                                            src="{{asset('files/assets/images/icons-dashboard/chimbote.png')}}"
+                                            width='48px' height='48px' />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body" style="background: #607D8B;color: white;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <div class="d-flex">
+                                        <h3>{{$contratos['dia'][0]->total}}</h3>
+                                        <h6>DIA</h6>
+                                    </div>
+                                    <h6 class="card-subtitle" style="color: white;">{{$contratos['dia'][0]->name}}</h6>
+                                </div>
+                                <div class="ml-auto">
+                                    <span class="text-success display-6"><img class="rounded-circle float-right"
+                                            style="margin-top:-50%;"
+                                            src="{{asset('files/assets/images/icons-dashboard/chiclayo.png')}}"
+                                            width='48px' height='48px' />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body" style="background: #607D8B;color: white;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <div class="d-flex">
+                                        <h3>{{$contratos['dia'][2]->total}}</h3>
+                                        <h6>DIA</h6>
+                                    </div>
+                                    <h6 class="card-subtitle" style="color: white;">{{$contratos['dia'][2]->name}}</h6>
+                                </div>
+                                <div class="ml-auto">
+                                    <span class="text-success display-6"><img class="rounded-circle float-right"
+                                            style="margin-top:-50%;"
+                                            src="{{asset('files/assets/images/icons-dashboard/ica.png')}}" width='48px'
+                                            height='48px' />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="row" id="mes">
+<hr>
+<!--Prospectos-->
+<div class="card-body" style="background-color:#9e9e9ea3;">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex no-block" style="padding-bottom: 1.25em;">
+                <div>
+                    <h4 class="d-md-flex align-items-center">PROSPECTOS WESTERN UNION</h4>
+                </div>
+                <div class="ml-auto">
+                    <div class="dl">
+                        <select class="custom-select" id="cambio_card_pros">
+                            <option value="0">Mensual</option>
+                            <option value="1">Diario</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="mes_pro">
 
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="d-flex no-block align-items-center">
-                            <div>
-                                <div class="d-flex">
-                                    <h3>0</h3>
-                                    <h6>MES</h6>
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <div class="d-flex">
+                                        <h3>{{$prospectos['mes'][4]->total}}</h3>
+                                        <h6>MES</h6>
+                                    </div>
+                                    <h6 class="card-subtitle">{{$prospectos['mes'][4]->name}}</h6>
                                 </div>
-                                <h6 class="card-subtitle">TRUJILLO</h6>
-                            </div>
-                            <div class="ml-auto">
-                                <span class="text-success display-6"><img class="rounded-circle float-right"
-                                        style="margin-top:-50%;"
-                                        src="{{asset('files/assets/images/icons-dashboard/trujillo.png')}}" width='48px'
-                                        height='48px' />
-                                </span>
+                                <div class="ml-auto">
+                                    <span class="text-success display-6"><img class="rounded-circle float-right"
+                                            style="margin-top:-50%;"
+                                            src="{{asset('files/assets/images/icons-dashboard/trujillo.png')}}"
+                                            width='48px' height='48px' />
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="progress">
-                            <div class="progress-bar bg-cyan" role="progressbar" style="width: 56%; height: 6px;"
-                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-cyan" role="progressbar" style="width: 56%; height: 6px;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="d-flex no-block align-items-center">
-                            <div>
-                                <div class="d-flex">
-                                    <h3>0</h3>
-                                    <h6>MES</h6>
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <div class="d-flex">
+                                        <h3>{{$prospectos['mes'][1]->total}}</h3>
+                                        <h6>MES</h6>
+                                    </div>
+                                    <h6 class="card-subtitle">{{$prospectos['mes'][1]->name}}</h6>
                                 </div>
-                                <h6 class="card-subtitle">CHIMBOTE</h6>
+                                <div class="ml-auto">
+                                    <span class="text-success display-6"><img class="rounded-circle float-right"
+                                            style="margin-top:-50%;"
+                                            src="{{asset('files/assets/images/icons-dashboard/chimbote.png')}}"
+                                            width='48px' height='48px' />
+                                    </span>
+                                </div>
                             </div>
-                            <div class="ml-auto">
-                                <span class="text-success display-6"><img class="rounded-circle float-right"
-                                        style="margin-top:-50%;"
-                                        src="{{asset('files/assets/images/icons-dashboard/chimbote.png')}}" width='48px'
-                                        height='48px' />
-                                </span>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <div class="progress">
-                            <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
-                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <div class="d-flex">
+                                        <h3>{{$prospectos['mes'][0]->total}}</h3>
+                                        <h6>MES</h6>
+                                    </div>
+                                    <h6 class="card-subtitle">{{$prospectos['mes'][0]->name}}</h6>
+                                </div>
+                                <div class="ml-auto">
+                                    <span class="text-success display-6"><img class="rounded-circle float-right"
+                                            style="margin-top:-50%;"
+                                            src="{{asset('files/assets/images/icons-dashboard/chiclayo.png')}}"
+                                            width='48px' height='48px' />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <div class="d-flex">
+                                        <h3>{{$prospectos['mes'][2]->total}}</h3>
+                                        <h6>MES</h6>
+                                    </div>
+                                    <h6 class="card-subtitle">{{$prospectos['mes'][2]->name}}</h6>
+                                </div>
+                                <div class="ml-auto">
+                                    <span class="text-success display-6"><img class="rounded-circle float-right"
+                                            style="margin-top:-50%;"
+                                            src="{{asset('files/assets/images/icons-dashboard/ica.png')}}" width='48px'
+                                            height='48px' />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -93,64 +446,130 @@
         </div>
     </div>
 
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="d-flex no-block align-items-center">
-                            <div>
-                                <div class="d-flex">
-                                    <h3>0</h3>
-                                    <h6>MES</h6>
+    <div class="row" style="display: none;" id="dia_pro">
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body" style="background: #607D8B;color: white;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <div class="d-flex">
+                                        <h3>{{$prospectos['dia'][4]->total}}</h3>
+                                        <h6>DIA</h6>
+                                    </div>
+                                    <h6 class="card-subtitle" style="color: white;">{{$prospectos['dia'][4]->name}}</h6>
                                 </div>
-                                <h6 class="card-subtitle">CHICLAYO</h6>
-                            </div>
-                            <div class="ml-auto">
-                                <span class="text-success display-6"><img class="rounded-circle float-right"
-                                        style="margin-top:-50%;"
-                                        src="{{asset('files/assets/images/icons-dashboard/chiclayo.png')}}" width='48px'
-                                        height='48px' />
-                                </span>
+                                <div class="ml-auto">
+                                    <span class="text-success display-6"><img class="rounded-circle float-right"
+                                            style="margin-top:-50%;"
+                                            src="{{asset('files/assets/images/icons-dashboard/trujillo.png')}}"
+                                            width='48px' height='48px' />
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="progress">
-                            <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
-                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-cyan" role="progressbar" style="width: 56%; height: 6px;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="d-flex no-block align-items-center">
-                            <div>
-                                <div class="d-flex">
-                                    <h3>0</h3>
-                                    <h6>MES</h6>
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body" style="background: #607D8B;color: white;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <div class="d-flex">
+                                        <h3>{{$prospectos['dia'][1]->total}}</h3>
+                                        <h6>DIA</h6>
+                                    </div>
+                                    <h6 class="card-subtitle" style="color: white;">{{$prospectos['dia'][1]->name}}</h6>
                                 </div>
-                                <h6 class="card-subtitle">ICA</h6>
+                                <div class="ml-auto">
+                                    <span class="text-success display-6"><img class="rounded-circle float-right"
+                                            style="margin-top:-50%;"
+                                            src="{{asset('files/assets/images/icons-dashboard/chimbote.png')}}"
+                                            width='48px' height='48px' />
+                                    </span>
+                                </div>
                             </div>
-                            <div class="ml-auto">
-                                <span class="text-success display-6"><img class="rounded-circle float-right"
-                                        style="margin-top:-50%;"
-                                        src="{{asset('files/assets/images/icons-dashboard/ica.png')}}" width='48px'
-                                        height='48px' />
-                                </span>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <div class="progress">
-                            <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
-                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body" style="background: #607D8B;color: white;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <div class="d-flex">
+                                        <h3>{{$prospectos['dia'][0]->total}}</h3>
+                                        <h6>DIA</h6>
+                                    </div>
+                                    <h6 class="card-subtitle" style="color: white;">{{$prospectos['dia'][0]->name}}</h6>
+                                </div>
+                                <div class="ml-auto">
+                                    <span class="text-success display-6"><img class="rounded-circle float-right"
+                                            style="margin-top:-50%;"
+                                            src="{{asset('files/assets/images/icons-dashboard/chiclayo.png')}}"
+                                            width='48px' height='48px' />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body" style="background: #607D8B;color: white;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <div class="d-flex">
+                                        <h3>{{$prospectos['dia'][2]->total}}</h3>
+                                        <h6>DIA</h6>
+                                    </div>
+                                    <h6 class="card-subtitle" style="color: white;">{{$prospectos['dia'][2]->name}}</h6>
+                                </div>
+                                <div class="ml-auto">
+                                    <span class="text-success display-6"><img class="rounded-circle float-right"
+                                            style="margin-top:-50%;"
+                                            src="{{asset('files/assets/images/icons-dashboard/ica.png')}}" width='48px'
+                                            height='48px' />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -158,139 +577,8 @@
         </div>
     </div>
 </div>
-
-
-<div class="row" style="display: none;" id="dia">
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="card-body" style="background: #607D8B;color: white;">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="d-flex no-block align-items-center">
-                            <div>
-                                <div class="d-flex">
-                                    <h3>0</h3>
-                                    <h6>DIA</h6>
-                                </div>
-                                <h6 class="card-subtitle" style="color: white;">TRUJILLO</h6>
-                            </div>
-                            <div class="ml-auto">
-                                <span class="text-success display-6"><img class="rounded-circle float-right"
-                                        style="margin-top:-50%;"
-                                        src="{{asset('files/assets/images/icons-dashboard/trujillo.png')}}" width='48px'
-                                        height='48px' />
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="progress">
-                            <div class="progress-bar bg-cyan" role="progressbar" style="width: 56%; height: 6px;"
-                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="card-body" style="background: #607D8B;color: white;">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="d-flex no-block align-items-center">
-                            <div>
-                                <div class="d-flex">
-                                    <h3>0</h3>
-                                    <h6>DIA</h6>
-                                </div>
-                                <h6 class="card-subtitle" style="color: white;">CHIMBOTE</h6>
-                            </div>
-                            <div class="ml-auto">
-                                <span class="text-success display-6"><img class="rounded-circle float-right"
-                                        style="margin-top:-50%;"
-                                        src="{{asset('files/assets/images/icons-dashboard/chimbote.png')}}" width='48px'
-                                        height='48px' />
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="progress">
-                            <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
-                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="card-body" style="background: #607D8B;color: white;">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="d-flex no-block align-items-center">
-                            <div>
-                                <div class="d-flex">
-                                    <h3>0</h3>
-                                    <h6>DIA</h6>
-                                </div>
-                                <h6 class="card-subtitle" style="color: white;">CHICLAYO</h6>
-                            </div>
-                            <div class="ml-auto">
-                                <span class="text-success display-6"><img class="rounded-circle float-right"
-                                        style="margin-top:-50%;"
-                                        src="{{asset('files/assets/images/icons-dashboard/chiclayo.png')}}" width='48px'
-                                        height='48px' />
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="progress">
-                            <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
-                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="card-body" style="background: #607D8B;color: white;">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="d-flex no-block align-items-center">
-                            <div>
-                                <div class="d-flex">
-                                    <h3>0</h3>
-                                    <h6>DIA</h6>
-                                </div>
-                                <h6 class="card-subtitle" style="color: white;">ICA</h6>
-                            </div>
-                            <div class="ml-auto">
-                                <span class="text-success display-6"><img class="rounded-circle float-right"
-                                        style="margin-top:-50%;"
-                                        src="{{asset('files/assets/images/icons-dashboard/ica.png')}}" width='48px'
-                                        height='48px' />
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="progress">
-                            <div class="progress-bar bg-red" role="progressbar" style="width: 26%; height: 6px;"
-                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+<br>
+<hr>
 <div class="row d-none">
     <!-- Column -->
     <div class="col-md-12 col-lg-12">
@@ -436,7 +724,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="m-r-10">
-                                    {{--
+                                        {{--
                                         @if ($q->zona=="AREQUIPA")
                                         <a class="btn btn-circle btn-warning text-white">AQ</a>
                                         @elseif ($q->zona=="TRUJILLO")
@@ -736,6 +1024,17 @@ width: 150
         }else if(i == 1){
             $("#mes").css("display",'none');
             $("#dia").css("display",'');
+        }
+    });
+
+    $('#cambio_card_pros').on('change', function() {
+        var i = this.value;
+        if(i == 0){
+            $("#dia_pro").css("display",'none');
+            $("#mes_pro").css("display",'');
+        }else if(i == 1){
+            $("#mes_pro").css("display",'none');
+            $("#dia_pro").css("display",'');
         }
     });
 
