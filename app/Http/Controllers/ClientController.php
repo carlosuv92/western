@@ -28,9 +28,6 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $client = Client::where('id',1)->first();
-        $client->lead_by = 8;
-        $client->save();
         return view('admin.prospect.index', [
             'title' => 'Prospecto',
             'breadcrumb' => 'crud'
