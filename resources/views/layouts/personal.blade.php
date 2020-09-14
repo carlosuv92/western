@@ -13,16 +13,20 @@
     <link rel="shortcut icon" href="{{asset('horizontal/assets/images/favicon.ico')}}">
 
     <!-- Plugins css-->
-    <link href="{{asset('horizontal/assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css')}}" rel="stylesheet" />
-    <link href="{{asset('horizontal/assets/plugins/multiselect/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('horizontal/assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css')}}"
+        rel="stylesheet" />
+    <link href="{{asset('horizontal/assets/plugins/multiselect/css/multi-select.css')}}" rel="stylesheet"
+        type="text/css" />
     <link href="{{asset('horizontal/assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('horizontal/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet"
-    />
+    <link href="{{asset('horizontal/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css')}}"
+        rel="stylesheet" />
     <link href="{{asset('horizontal/assets/plugins/switchery/switchery.min.css')}}" rel="stylesheet" />
     <link href="{{asset('horizontal/assets/plugins/timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet">
-    <link href="{{asset('horizontal/assets/plugins/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css')}}"
+    <link
+        href="{{asset('horizontal/assets/plugins/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css')}}"
         rel="stylesheet">
-    <link href="{{asset('horizontal/assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}" rel="stylesheet">
+    <link href="{{asset('horizontal/assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}"
+        rel="stylesheet">
     <link href="{{asset('horizontal/assets/plugins/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
 
     <!-- App css -->
@@ -33,14 +37,24 @@
     <script src="{{asset('horizontal/assets/js/modernizr.min.js')}}"></script>
 
     <!-- DataTables -->
-    <link href="{{asset('assets/plugins/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/plugins/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet"
+        type="text/css" />
     <link href="{{asset('assets/plugins/datatables/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- Responsive datatable examples -->
-    <link href="{{asset('assets/plugins/datatables/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/plugins/datatables/responsive.bootstrap4.min.css')}}" rel="stylesheet"
+        type="text/css" />
     <!-- Multi Item Selection examples -->
-    <link href="{{asset('assets/plugins/datatables/select.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" /> @stack('styles')
+    <link href="{{asset('assets/plugins/datatables/select.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    @stack('styles')
     <!-- Circlifull chart css -->
-    <link href="{{asset('assets/plugins/jquery-circliful/css/jquery.circliful.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('assets/plugins/jquery-circliful/css/jquery.circliful.css')}}" rel="stylesheet"
+        type="text/css" />
+    <style>
+        #topnav .topbar-main .logo {
+            text-align: center !important;
+            float: inherit !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -51,7 +65,7 @@
             <div class="container-fluid">
 
                 <!-- Logo container-->
-                <div class="logo">
+                <div class="logo" style="text-align: center !important;">
                     <!-- Text Logo -->
                     <!--<a href="#" class="logo">-->
                     <!--<span class="logo-small"><i class="mdi mdi-radar"></i></span>-->
@@ -59,83 +73,12 @@
                     <!--</a>-->
                     <!-- Image Logo -->
                     <a href="#" class="logo">
-                            <img src="{{asset('horizontal/assets/images/logo-sm.png')}}" alt="" height="26" class="logo-small">
-                            <img src="{{asset('horizontal/assets/images/logo.png')}}" alt="" height="24" class="logo-large">
-                        </a>
+                        <img src="{{asset('files/assets/images/logo-icon.png')}}" alt="" height="26" class="logo-small">
+                        <img src="{{asset('files/assets/images/logo-icon.png')}}" alt="" height="24" class="logo-large">
+                    </a>
                 </div>
                 <!-- End Logo container-->
 
-                <div class="menu-extras topbar-custom">
-
-                    <ul class="list-unstyled topbar-right-menu float-right mb-0">
-
-                        <li class="menu-item">
-                            <!-- Mobile menu toggle-->
-                            <a class="navbar-toggle nav-link">
-                                <div class="lines">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </a>
-                            <!-- End mobile menu toggle-->
-                        </li>
-                        <li class="hide-phone">
-                            <form class="app-search">
-                                <input type="text" placeholder="Search..." class="form-control">
-                                <button type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-                        </li>
-                        <li>
-                            <!-- Notification -->
-                            <div class="notification-box">
-                                <ul class="list-inline mb-0">
-                                    <li>
-                                        <a href="javascript:void(0);" class="right-bar-toggle">
-                                                <i class="mdi mdi-bell-outline noti-icon"></i>
-                                            </a>
-                                        <div class="noti-dot">
-                                            <span class="dot"></span>
-                                            <span class="pulse"></span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- End Notification bar -->
-                        </li>
-
-                        <li class="dropdown notification-list">
-                            <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
-                                aria-expanded="false">
-                                    <img src="{{asset('horizontal/assets/images/users/avatar-1.jpg')}}" alt="user" class="rounded-circle">
-                                </a>
-                            <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="ti-user m-r-5"></i> Profile
-                                    </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="ti-settings m-r-5"></i> Settings
-                                    </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="ti-lock m-r-5"></i> Lock screen
-                                    </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="ti-power-off m-r-5"></i> Logout
-                                    </a>
-
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
                 <!-- end menu-extras -->
 
                 <div class="clearfix"></div>
@@ -145,22 +88,6 @@
         </div>
         <!-- end topbar-main -->
 
-        <div class="navbar-custom">
-            <div class="container-fluid">
-                <div id="navigation">
-                    <!-- Navigation Menu-->
-                    <ul class="navigation-menu">
-                        <li class="has-submenu">
-                            <a href="#"><i class="mdi mdi-view-dashboard"></i> <span> Dashboard </span> </a>
-                        </li>
-                    </ul>
-                    <!-- End navigation menu -->
-                </div>
-                <!-- end #navigation -->
-            </div>
-            <!-- end container -->
-        </div>
-        <!-- end navbar-custom -->
     </header>
     <!-- End Navigation Bar-->
 
@@ -198,17 +125,25 @@
     <!-- Plugins Js -->
     <script src="{{asset('horizontal/assets/plugins/switchery/switchery.min.js')}}"></script>
     <script src="{{asset('horizontal/assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('horizontal/assets/plugins/multiselect/js/jquery.multi-select.js')}}"></script>
-    <script type="text/javascript" src="{{asset('horizontal/assets/plugins/jquery-quicksearch/jquery.quicksearch.js')}}"></script>
+    <script type="text/javascript" src="{{asset('horizontal/assets/plugins/multiselect/js/jquery.multi-select.js')}}">
+    </script>
+    <script type="text/javascript"
+        src="{{asset('horizontal/assets/plugins/jquery-quicksearch/jquery.quicksearch.js')}}"></script>
     <script src="{{asset('horizontal/assets/plugins/select2/js/select2.min.js')}}" type="text/javascript"></script>
-    <script src="{{asset('horizontal/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js')}}" type="text/javascript"></script>
-    <script src="{{asset('horizontal/assets/plugins/bootstrap-inputmask/bootstrap-inputmask.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('horizontal/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js')}}"
+        type="text/javascript"></script>
+    <script src="{{asset('horizontal/assets/plugins/bootstrap-inputmask/bootstrap-inputmask.min.js')}}"
+        type="text/javascript"></script>
     <script src="{{asset('horizontal/assets/plugins/moment/moment.js')}}"></script>
     <script src="{{asset('horizontal/assets/plugins/timepicker/bootstrap-timepicker.min.js')}}"></script>
-    <script src="{{asset('horizontal/assets/plugins/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js')}}"></script>
-    <script src="{{asset('horizontal/assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+    <script
+        src="{{asset('horizontal/assets/plugins/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js')}}">
+    </script>
+    <script src="{{asset('horizontal/assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}">
+    </script>
     <script src="{{asset('horizontal/assets/plugins/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-    <script src="{{asset('horizontal/assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('horizontal/assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"
+        type="text/javascript"></script>
 
     <!-- Required datatable js -->
     <script src="{{asset('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
@@ -282,13 +217,15 @@
             });
 
     </script>
-    
+
     <!-- App js -->
     <script src="{{asset('horizontal/assets/js/jquery.core.js')}}"></script>
     <script src="{{asset('horizontal/assets/js/jquery.app.js')}}"></script>
+    <script src="{{asset('horizontal/assets/plugins/bootstrap-wizard/jquery.bootstrap.wizard.js')}}"></script>
+    <script src="{{asset('horizontal/assets/plugins/jquery-validation/dist/jquery.validate.min.js')}}"></script>
     <script>
         jQuery(document).ready(function() {
-    
+
                     //advance multiselect start
                     $('#my_multi_select3').multiSelect({
                         selectableHeader: "<input type='text' class='form-control search-input' autocomplete='off' placeholder='search...'>",
@@ -299,7 +236,7 @@
                                     $selectionSearch = that.$selectionUl.prev(),
                                     selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
                                     selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
-    
+
                             that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
                                     .on('keydown', function (e) {
                                         if (e.which === 40) {
@@ -307,7 +244,7 @@
                                             return false;
                                         }
                                     });
-    
+
                             that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
                                     .on('keydown', function (e) {
                                         if (e.which == 40) {
@@ -325,16 +262,16 @@
                             this.qs2.cache();
                         }
                     });
-    
+
                     // Select2
                     $(".select2").select2();
-    
+
                     $(".select2-limiting").select2({
                         maximumSelectionLength: 2
                     });
-    
+
                 });
-    
+
                 //Bootstrap-TouchSpin
                 $(".vertical-spin").TouchSpin({
                     verticalbuttons: true,
@@ -349,7 +286,7 @@
                 if (vspinTrue) {
                     $('.vertical-spin').prev('.bootstrap-touchspin-prefix').remove();
                 }
-    
+
                 $("input[name='demo1']").TouchSpin({
                     min: 0,
                     max: 100,
@@ -384,7 +321,7 @@
                     buttondown_class: "btn btn-primary",
                     buttonup_class: "btn btn-primary"
                 });
-    
+
                 $("input[name='demo5']").TouchSpin({
                     prefix: "pre",
                     postfix: "post",
@@ -395,7 +332,7 @@
                     buttondown_class: "btn btn-primary",
                     buttonup_class: "btn btn-primary"
                 });
-    
+
                 // Time Picker
                 jQuery('#timepicker').timepicker({
                     defaultTIme : false,
@@ -418,14 +355,14 @@
                         down: 'mdi mdi-chevron-down'
                     }
                 });
-    
+
                 //colorpicker start
-    
+
                 $('.colorpicker-default').colorpicker({
                     format: 'hex'
                 });
                 $('.colorpicker-rgba').colorpicker();
-    
+
                 // Date Picker
                 jQuery('#datepicker').datepicker();
                 jQuery('#datepicker-autoclose').datepicker({
@@ -442,7 +379,7 @@
                 jQuery('#date-range').datepicker({
                     toggleActive: true
                 });
-    
+
                 //Date range picker
                 $('.input-daterange-datepicker').daterangepicker({
                     buttonClasses: ['btn', 'btn-sm'],
@@ -470,9 +407,9 @@
                         days: 6
                     }
                 });
-    
+
                 $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-    
+
                 $('#reportrange').daterangepicker({
                     format: 'MM/DD/YYYY',
                     startDate: moment().subtract(29, 'days'),
@@ -515,25 +452,25 @@
                     console.log(start.toISOString(), end.toISOString(), label);
                     $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
                 });
-    
+
                 //Bootstrap-MaxLength
                 $('input#defaultconfig').maxlength({
                     warningClass: "badge badge-success",
                     limitReachedClass: "badge badge-danger"
                 });
-    
+
                 $('input#thresholdconfig').maxlength({
                     threshold: 20,
                     warningClass: "badge badge-success",
                     limitReachedClass: "badge badge-danger"
                 });
-    
+
                 $('input#moreoptions').maxlength({
                     alwaysShow: true,
                     warningClass: "badge badge-success",
                     limitReachedClass: "badge badge-danger"
                 });
-    
+
                 $('input#alloptions').maxlength({
                     alwaysShow: true,
                     warningClass: "badge badge-success",
@@ -543,13 +480,13 @@
                     postText: ' chars available.',
                     validate: true
                 });
-    
+
                 $('textarea#textarea').maxlength({
                     alwaysShow: true,
                     warningClass: "badge badge-success",
                     limitReachedClass: "badge badge-danger"
                 });
-    
+
                 $('input#placement').maxlength({
                     alwaysShow: true,
                     placement: 'top-left',
@@ -557,7 +494,6 @@
                     limitReachedClass: "badge badge-danger"
                 });
     </script>
-
     @stack('scripts')
 </body>
 

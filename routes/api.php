@@ -30,3 +30,5 @@ Route::get('get_usuarios', 'Api\ConsultasController@getUsuarios')->name('get.usu
 //Import File User
 Route::post('user_up', 'Api\UserImportController@importFile')->name('upload_user_api');
 
+Route::get('get_seller/{id}', 'AddSaleController@getSeller')->name('get.seller');
+
