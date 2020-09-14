@@ -48,7 +48,27 @@ class AddSaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::beginTransaction();
+        try {
+
+            $client = new Client();
+
+            $client->status = 1;
+            $client->name = request('name');
+            $client->phone = request('phone');
+            $client->department = request('department');
+            $client->priority = request('priority');
+            $client->address = request('address');
+            $client->lead_by = request('seller');
+            $client->save();
+
+            DB::commit();
+        } catch (\Exception $ex) {
+            DB::rollBack();
+            throw $ex;
+        }
+
+        return redirect()->back()->with('success', 'PROSPECTO GENERADO');
     }
 
     /**

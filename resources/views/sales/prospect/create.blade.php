@@ -3,6 +3,11 @@
 @extends('layouts.personal')
 
 @section('content')
+@if (\Session::has('success'))
+<div class="alert alert-success" style="color: #0d483c;">
+    {!! \Session::get('success') !!}
+</div>
+@endif
 <div class="row">
     <div class="col-xl-12">
         <div class="card-box pb-0">
@@ -24,7 +29,8 @@
 
             <h4 class="header-title m-t-0 m-b-30">Crear Prospecto</h4>
 
-            <form id="commentForm" method="POST" action={{route('prospect.store')}} class="form-horizontal">
+            <form id="commentForm" method="POST" action={{route('prospecto.store')}} class="form-horizontal">
+                @csrf
                 <div id="rootwizard" class="pull-in">
                     <ul class="nav nav-tabs nav-justified">
                         <li class="nav-item"><a href="#first" data-toggle="tab" class="nav-link">Selección Vendedor</a>
@@ -50,7 +56,7 @@
                             </div>
 
                             <div class="control-group">
-                                <label class="control-label">DEPARTAMENTO</label>
+                                <label class="control-label">VENDEDOR</label>
 
                                 <div class="controls">
                                     <select class="form-control custom-select" id="seller" name="seller" required>
@@ -101,8 +107,10 @@
                             <li class="previous list-inline-item"><a href="#"
                                     class="btn btn-primary waves-effect waves-light">ANTERIOR</a>
                             </li>
-                            <li class="next list-inline-item float-right"><a href="#"
+                            <li class="next list-inline-item float-right" id="next"><a href="#"
                                     class="btn btn-primary waves-effect waves-light">SIGUIENTE</a></li>
+                            <button class="btn btn-success float-right d-none" id="sub" type="submit">CREAR
+                                PROSPECTO</button>
                         </ul>
                     </div>
                 </div>
@@ -118,18 +126,6 @@
 @push('scripts')
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#basicwizard').bootstrapWizard({'tabClass': 'nav nav-tabs navtab-wizard nav-justified bg-muted'});
-
-        $('#progressbarwizard').bootstrapWizard({onTabShow: function(tab, navigation, index) {
-            var $total = navigation.find('li').length;
-            var $current = index+1;
-            var $percent = ($current/$total) * 100;
-            $('#progressbarwizard').find('.bar').css({width:$percent+'%'});
-        },
-            'tabClass': 'nav nav-tabs navtab-wizard nav-justified bg-muted'});
-
-        $('#btnwizard').bootstrapWizard({'tabClass': 'nav nav-tabs navtab-wizard nav-justified bg-muted','nextSelector': '.button-next', 'previousSelector': '.button-previous', 'firstSelector': '.button-first', 'lastSelector': '.button-last'});
-
         var $validator = $("#commentForm").validate({
             rules: {
                 department: {
@@ -138,26 +134,45 @@
                 seller: {
                     required: true,
                 },
-                urlfield: {
+                name: {
                     required: true,
-                    minlength: 3,
-                    url: true
-                }
+                },
+                phone: {
+                    required: true,
+                },
+                address: {
+                    required: true,
+                },
+                priority: {
+                    required: true,
+                },
             }
         });
 
+        var $i=0;
         $('#rootwizard').bootstrapWizard({
             'tabClass': 'nav nav-tabs navtab-wizard nav-justified bg-muted',
+            'onTabClick':function(tab, navigation, index) {
+                        return false;
+                },
             'onNext': function (tab, navigation, index) {
                 var $valid = $("#commentForm").valid();
                 if (!$valid) {
                     $validator.focusInvalid();
                     return false;
+                }else{
+                    $i++;
+                }
+                if($i>=2 ){
+                    $("#next").addClass('d-none');
+                    $("#sub").removeClass('d-none');
+                }else{
+                    $("#next").removeClass('d-none');
+                    $("#sub").addClass('d-none');
                 }
             }
         });
     });
-
 </script>
 
 <script>
@@ -182,5 +197,11 @@
             }
         });
     }
+</script>
+
+<script>
+    $(document).ready(function(){
+  $('.alert-success').fadeIn().delay(1000).fadeOut();
+    });
 </script>
 @endpush

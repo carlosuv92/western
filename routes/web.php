@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/prospecto','AddSaleController@create')->name('prospecto');
+Route::get('/prospecto','AddSaleController@create')->name('prospecto.create');
+Route::post('/prospecto','AddSaleController@store')->name('prospecto.store');
 Auth::routes();
 
 Route::get('/', function () {
