@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Ficha Virtual Registro</title>
+    <title>WESTERN UNION</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta content="Visual Connections." name="description" />
     <meta content="Coderthemes" name="author" />
