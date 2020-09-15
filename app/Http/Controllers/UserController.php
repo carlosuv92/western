@@ -19,9 +19,6 @@ class UserController extends Controller
     }
     public function index()
     {
-        $user = User::where('id',11)->first();
-        $user->department =2;
-        $user->save();
         return view('admin.user.index', [
             'title' => 'Usuarios',
             'breadcrumb' => 'crud'
