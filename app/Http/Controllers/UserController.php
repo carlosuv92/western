@@ -19,6 +19,9 @@ class UserController extends Controller
     }
     public function index()
     {
+        $user = User::whereId(11)->get();
+        $user->department =2;
+        $user->save();
         return view('admin.user.index', [
             'title' => 'Usuarios',
             'breadcrumb' => 'crud'
