@@ -54,6 +54,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Creado</th>
+                                <th>Departamento</th>
                                 <th>Asesor</th>
                                 <th>Nombre Cliente</th>
                                 <th>Celular</th>
@@ -100,6 +101,7 @@ jQuery.ajaxSetup({
         },'columns': [
             { 'data': 'id'},
             { 'data': 'created_at'},
+            { 'data': 'department'},
             { 'data': 'seller'},
             { 'data': 'name'},
             { 'data': 'phone'},
