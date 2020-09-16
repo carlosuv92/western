@@ -22,7 +22,7 @@ class ConsultasController extends Controller
             ->leftJoin('users as b', 'b.id', '=', 'clients.lead_by')
             ->select(
                 'clients.*',
-                'departaments.name AS department',
+                'departments.name AS department',
                 DB::raw('CONCAT(b.surname, " ", b.name) AS seller')
             )
             ->where('clients.status', 1)
