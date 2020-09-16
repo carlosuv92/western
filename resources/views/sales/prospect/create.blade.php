@@ -8,6 +8,16 @@
     {!! \Session::get('success') !!}
 </div>
 @endif
+
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 <div class="row">
     <div class="col-xl-12">
         <div class="card-box pb-0">
@@ -201,7 +211,7 @@
 
 <script>
     $(document).ready(function(){
-  $('.alert-success').fadeIn().delay(1000).fadeOut();
+  $('.alert').fadeIn().delay(1000).fadeOut();
     });
 </script>
 @endpush

@@ -48,6 +48,18 @@ class AddSaleController extends Controller
      */
     public function store(Request $request)
     {
+        $rules = [
+            'phone' => 'numeric|min:5|max:7',
+            'cellphone' => 'numeric|min:9|max:9',
+        ];
+        $customMessages = [
+            'numeric' => 'Cuidado!! el campo :attribute debe ser numerico',
+            'min' => 'Cuidado!! el campo :attribute debe tener minimo :min',
+            'max' => 'Cuidado!! el campo :attribute debe tener maximo :max',
+        ];
+
+        $request->validate($rules, $customMessages);
+
         DB::beginTransaction();
         try {
 
@@ -56,6 +68,7 @@ class AddSaleController extends Controller
             $client->status = 1;
             $client->name = request('name');
             $client->phone = request('phone');
+            //$client->cellphone = request('cellphone');
             $client->department = request('department');
             $client->priority = request('priority');
             $client->address = request('address');

@@ -97,6 +97,7 @@ class ContractController extends Controller
                 $client->giro = request('giro');
                 $client->negocio = request('negocio');
                 $client->phone = request('phone');
+                $client->cellphone = request('cellphone');
                 $client->address = request('address');
                 $client->lead_by = request('seller');
                 $client->department = request('department');

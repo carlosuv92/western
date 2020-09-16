@@ -34,6 +34,10 @@
         .swal-footer {
             text-align: center !important;
         }
+        .error{
+            border-color: red;
+            box-shadow: 0 0 0 0.2rem rgba(239, 110, 110, 0.25);
+        }
     </style>
     @stack('styles')
 </head>
