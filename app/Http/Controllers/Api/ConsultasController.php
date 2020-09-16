@@ -18,10 +18,11 @@ class ConsultasController extends Controller
         $querys = \DB::table('clients')
             ->leftJoin('client_statuses', 'client_statuses.id', '=', 'clients.status')
             ->leftJoin('user_relations', 'user_relations.user', '=', 'clients.lead_by')
+            ->leftJoin('departaments', 'departaments.id', '=', 'clients.department')
             ->leftJoin('users as b', 'b.id', '=', 'clients.lead_by')
             ->select(
                 'clients.*',
-                'clients.department AS department',
+                'departaments.name AS department',
                 DB::raw('CONCAT(b.surname, " ", b.name) AS seller')
             )
             ->where('clients.status', 1)
