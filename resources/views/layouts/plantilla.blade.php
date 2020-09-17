@@ -658,7 +658,7 @@
     <script src="{{asset('files/assets/libs/select2/dist/js/select2.full.min.js')}}"></script>
     <script src="{{asset('files/assets/libs/select2/dist/js/select2.min.js')}}"></script>
     <script src="{{asset('files/dist/js/pages/forms/select2/select2.init.js')}}"></script>
-    <script src="{{asset('files/dist/assets/libs/Chart.js/dist/Chart.min.js')}}"></script>
+    <script src="{{asset('files/assets/libs/chart.js/dist/Chart.min.js')}}"></script>
     <script>
         $('.load_carga').each(function () {
             if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
