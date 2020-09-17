@@ -26,7 +26,7 @@ class AddSaleController extends Controller
                     ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
             })
             ->select('departments.name', DB::raw("count(clients.id) as total"))
-            ->groupBy('departments.name')
+            ->groupBy('departments.name')->orderBy('total','desc')
             ->get();
 
         $prospectos['dia'] = DB::table('departments')
@@ -37,7 +37,7 @@ class AddSaleController extends Controller
                     ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
             })
             ->select('departments.name', DB::raw("count(clients.id) as total"))
-            ->groupBy('departments.name')
+            ->groupBy('departments.name')->orderBy('total','desc')
             ->get();
 
         return view('dashboard.prospect', [

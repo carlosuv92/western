@@ -45,7 +45,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($prospectos['mes'] as $i =>$mes)
-                                @if($i>0)
+                                @if($mes->name!="LIMA")
                                 <tr>
                                     <td>{{$mes->name}}</td>
                                     <td>{{$mes->total}}</td>
@@ -83,7 +83,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($prospectos['dia'] as $i =>$dia)
-                                @if($i>0)
+                                @if($mes->name!="LIMA")
                                 <tr>
                                     <td>{{$dia->name}}</td>
                                     <td>{{$dia->total}}</td>
