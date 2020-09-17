@@ -24,6 +24,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('dashboard')->group(function () {
+    Route::get('/prospect','AddSaleController@index')->name('prospect.dashboard');
     Route::get('/admin', 'HomeController@index')->name('home');
 });
 

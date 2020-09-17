@@ -83,9 +83,15 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="phone">TELEFONO / CELULAR</label>
+                                <label class="control-label" for="phone">TELEFONO</label>
                                 <div class="controls">
-                                    <input class="form-control" type="text" id="phone" name="phone" required>
+                                    <input class="form-control" type="number" id="phone" name="phone">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="cellphone">CELLPHONE</label>
+                                <div class="controls">
+                                    <input class="form-control" type="number" id="cellphone" name="cellphone" required>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -211,7 +217,7 @@
 
 <script>
     $(document).ready(function(){
-  $('.alert').fadeIn().delay(1000).fadeOut();
+  $('.alert').fadeIn().delay(5000).fadeOut();
     });
 </script>
 @endpush

@@ -65,13 +65,12 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'phone' => 'numeric|min:5|max:7',
-            'cellphone' => 'numeric|min:9|max:9',
+            'phone' => 'min:5|max:7',
+            'cellphone' => 'min:9|max:9',
         ];
         $customMessages = [
-            'numeric' => 'Cuidado!! el campo :attribute debe ser numerico',
-            'min' => 'Cuidado!! el campo :attribute debe tener minimo :min',
-            'max' => 'Cuidado!! el campo :attribute debe tener maximo :max',
+            'min' => 'Cuidado!! el campo :attribute debe tener minimo :min digitos',
+            'max' => 'Cuidado!! el campo :attribute debe tener maximo :max digitos',
         ];
 
         $request->validate($rules, $customMessages);

@@ -7,6 +7,7 @@ use App\Client;
 use App\Department;
 use App\User;
 use Illuminate\Support\Facades\Redirect;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class AddSaleController extends Controller
@@ -17,7 +18,34 @@ class AddSaleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { }
+    {
+        $prospectos['mes'] = DB::table('departments')
+            ->leftJoin('clients', function ($join) {
+                $join->on('clients.department', '=', 'departments.id')
+                    ->where('clients.status', '1')
+                    ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
+            })
+            ->select('departments.name', DB::raw("count(clients.id) as total"))
+            ->groupBy('departments.name')
+            ->get();
+
+        $prospectos['dia'] = DB::table('departments')
+            ->leftJoin('clients', function ($join) {
+                $join->on('clients.department', '=', 'departments.id')
+                    ->where('clients.status', '1')
+                    ->whereDay('clients.created_at', '=', Carbon::now()->day)
+                    ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
+            })
+            ->select('departments.name', DB::raw("count(clients.id) as total"))
+            ->groupBy('departments.name')
+            ->get();
+
+        return view('dashboard.prospect', [
+            'prospectos' => $prospectos,
+            'title' => 'Prospectos',
+            'breadcrumb' => 'admin'
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -49,13 +77,12 @@ class AddSaleController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'phone' => 'numeric|min:5|max:7',
-            'cellphone' => 'numeric|min:9|max:9',
+            'phone' => 'min:5|max:7',
+            'cellphone' => 'min:9|max:9',
         ];
         $customMessages = [
-            'numeric' => 'Cuidado!! el campo :attribute debe ser numerico',
-            'min' => 'Cuidado!! el campo :attribute debe tener minimo :min',
-            'max' => 'Cuidado!! el campo :attribute debe tener maximo :max',
+            'min' => 'Cuidado!! el campo :attribute debe tener minimo :min digitos',
+            'max' => 'Cuidado!! el campo :attribute debe tener maximo :max digitos',
         ];
 
         $request->validate($rules, $customMessages);
@@ -68,7 +95,7 @@ class AddSaleController extends Controller
             $client->status = 1;
             $client->name = request('name');
             $client->phone = request('phone');
-            //$client->cellphone = request('cellphone');
+            $client->cellphone = request('cellphone');
             $client->department = request('department');
             $client->priority = request('priority');
             $client->address = request('address');

@@ -57,6 +57,7 @@
                                 <th>Departamento</th>
                                 <th>Asesor</th>
                                 <th>Nombre Cliente</th>
+                                <th>Telefono</th>
                                 <th>Celular</th>
                                 <th>Nivel Interes</th>
                             </tr>
@@ -105,6 +106,7 @@ jQuery.ajaxSetup({
             { 'data': 'seller'},
             { 'data': 'name'},
             { 'data': 'phone'},
+            { 'data': 'cellphone'},
             { 'data': 'priority'},
         ],
         "order": [
