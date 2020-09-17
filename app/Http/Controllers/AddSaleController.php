@@ -26,6 +26,7 @@ class AddSaleController extends Controller
                     ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
             })
             ->select('departments.name', DB::raw("count(clients.id) as total"))
+            ->whereNotIn('departments.name',["LIMA"])
             ->groupBy('departments.name')->orderBy('total','desc')
             ->get();
 
@@ -37,6 +38,7 @@ class AddSaleController extends Controller
                     ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
             })
             ->select('departments.name', DB::raw("count(clients.id) as total"))
+            ->whereNotIn('departments.name',["LIMA"])
             ->groupBy('departments.name')->orderBy('total','desc')
             ->get();
 

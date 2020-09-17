@@ -45,12 +45,10 @@
                             </thead>
                             <tbody>
                                 @foreach ($prospectos['mes'] as $i =>$mes)
-                                @if($mes->name!="LIMA")
                                 <tr>
                                     <td>{{$mes->name}}</td>
                                     <td>{{$mes->total}}</td>
                                 </tr>
-                                @endif
                                 @endforeach
                             </tbody>
                         </table>
@@ -83,12 +81,10 @@
                             </thead>
                             <tbody>
                                 @foreach ($prospectos['dia'] as $i =>$dia)
-                                @if($mes->name!="LIMA")
                                 <tr>
                                     <td>{{$dia->name}}</td>
                                     <td>{{$dia->total}}</td>
                                 </tr>
-                                @endif
                                 @endforeach
                             </tbody>
                         </table>
@@ -108,12 +104,12 @@
 	new Chart(document.getElementById("bar-chart-horizontal"), {
 		type: 'horizontalBar',
 		data: {
-		  labels: ['{{$prospectos['mes'][4]->name}}','{{$prospectos['mes'][3]->name}}','{{$prospectos['mes'][2]->name}}','{{$prospectos['mes'][1]->name}}'],
+		  labels: ['{{$prospectos['mes'][0]->name}}','{{$prospectos['mes'][3]->name}}','{{$prospectos['mes'][2]->name}}','{{$prospectos['mes'][1]->name}}'],
 		  datasets: [
 			{
 			  label: "Prospectos (mes)",
 			  backgroundColor: ["#03a9f4", "#e861ff","#08ccce","#e2b35b"],
-			  data: ['{{$prospectos['mes'][4]->total}}','{{$prospectos['mes'][3]->total}}','{{$prospectos['mes'][2]->total}}','{{$prospectos['mes'][1]->total}}']
+			  data: ['{{$prospectos['mes'][0]->total}}','{{$prospectos['mes'][3]->total}}','{{$prospectos['mes'][2]->total}}','{{$prospectos['mes'][1]->total}}']
 			}
 		  ]
 		},
@@ -130,12 +126,12 @@
 	new Chart(document.getElementById("bar-chart-horizontal-dia"), {
 		type: 'horizontalBar',
 		data: {
-            labels: ['{{$prospectos['dia'][4]->name}}','{{$prospectos['dia'][3]->name}}','{{$prospectos['dia'][2]->name}}','{{$prospectos['dia'][1]->name}}'],
+            labels: ['{{$prospectos['dia'][0]->name}}','{{$prospectos['dia'][3]->name}}','{{$prospectos['dia'][2]->name}}','{{$prospectos['dia'][1]->name}}'],
 		  datasets: [
 			{
 			  label: "Prospectos (dia)",
 			  backgroundColor: ["#03a9f4", "#e861ff","#08ccce","#e2b35b"],
-			  data: ['{{$prospectos['dia'][4]->total}}','{{$prospectos['dia'][3]->total}}','{{$prospectos['dia'][2]->total}}','{{$prospectos['dia'][1]->total}}']
+			  data: ['{{$prospectos['dia'][0]->total}}','{{$prospectos['dia'][3]->total}}','{{$prospectos['dia'][2]->total}}','{{$prospectos['dia'][1]->total}}']
 			}
 		  ]
 		},
@@ -143,7 +139,7 @@
 		  legend: { display: false },
 		  title: {
 			display: true,
-			text: 'Prospectos Mensuales'
+			text: 'Prospectos Diarios'
 		  }
 		}
     });
