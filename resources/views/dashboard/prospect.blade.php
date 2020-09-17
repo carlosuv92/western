@@ -57,7 +57,7 @@
             </div>
         </div>
         <div class="col-lg-6">
-            <div class="card">
+            <div class="card" style="background-color:#3e5569;color:white;">
                 <div class="card-body">
                     <h4 class="card-title">Prospectos por Dia</h4>
                     <div>
@@ -68,12 +68,12 @@
         </div>
 
         <div class="col-lg-6">
-            <div class="card">
+            <div class="card" style="background-color:#3e5569;color:white;">
                 <div class="card-body">
                     <h4 class="card-title">Prospecto Dia</h4>
                     <div class="table-responsive">
                         <table class="table">
-                            <thead class="bg-success text-white">
+                            <thead class="bg-warning text-white">
                                 <tr>
                                     <th>Departamento</th>
                                     <th>Total</th>
@@ -139,8 +139,24 @@
 		  legend: { display: false },
 		  title: {
 			display: true,
-			text: 'Prospectos Diarios'
-		  }
+            text: 'Prospectos Diarios',
+            fontColor: 'white'
+          },
+          labels: {
+                fontColor: "white",
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        fontColor: "white",
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        fontColor: "white",
+                    }
+                }]
+            }
 		}
     });
 });
