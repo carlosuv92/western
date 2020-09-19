@@ -45,14 +45,14 @@ class AddSaleController extends Controller
 
         $cant['fecha'] = DB::select("SELECT count(CAST(c.created_at AS DATE)) as total,
                                                     CAST(c.created_at AS DATE) as fecha FROM clients c
-                                    where status=1 GROUP by fecha");
+                                    where status = 1 and department <> 1 GROUP by fecha");
         $cant['prioridad_mi'] = DB::select("SELECT count(CAST(c.created_at AS DATE)) as total,
                                                     CAST(c.created_at AS DATE) as fecha FROM clients c
-                                            where status = 1 and priority=2 GROUP by fecha");
+                                            where status = 1 and department <> 1 and priority=2 GROUP by fecha");
 
         $cant['prioridad_i'] = DB::select("SELECT count(CAST(c.created_at AS DATE)) as total,
                                                             CAST(c.created_at AS DATE) as fecha FROM clients c
-                                            where status = 1 and priority=1 GROUP by fecha");
+                                            where status = 1 and department <> 1 and priority=1 GROUP by fecha");
 
         foreach ($cant['fecha'] as $cantidad) {
             $cantidad->pr_mi = 0;
