@@ -43,12 +43,33 @@ class AddSaleController extends Controller
             ->get();
 
 
-        $cant['fecha'] = DB::select("SELECT count(CAST(c.created_at AS DATE)) as tot_fecha,
+        $cant['fecha'] = DB::select("SELECT count(CAST(c.created_at AS DATE)) as total,
                                                     CAST(c.created_at AS DATE) as fecha FROM clients c
                                     where status=1 GROUP by fecha");
-        dd($cant['fecha']);
+        $cant['prioridad_mi'] = DB::select("SELECT count(CAST(c.created_at AS DATE)) as total,
+                                                    CAST(c.created_at AS DATE) as fecha FROM clients c
+                                            where status = 1 and priority=2 GROUP by fecha");
+
+        $cant['prioridad_i'] = DB::select("SELECT count(CAST(c.created_at AS DATE)) as total,
+                                                            CAST(c.created_at AS DATE) as fecha FROM clients c
+                                            where status = 1 and priority=1 GROUP by fecha");
+
+        foreach ($cant['fecha'] as $cantidad) {
+            $cantidad->pr_mi = 0;
+            $cantidad->pr_i = 0;
+            foreach ($cant['prioridad_mi'] as $pr_mi) {
+                if ($pr_mi->fecha === $cantidad->fecha)
+                    $cantidad->pr_mi = $pr_mi->total;
+            }
+
+            foreach ($cant['prioridad_i'] as $pr_i) {
+                if ($pr_i->fecha === $cantidad->fecha)
+                    $cantidad->pr_i = $pr_i->total;
+            }
+        }
         return view('dashboard.prospect', [
             'prospectos' => $prospectos,
+            'cant' => $cant,
             'title' => 'Prospectos',
             'breadcrumb' => 'admin'
         ]);

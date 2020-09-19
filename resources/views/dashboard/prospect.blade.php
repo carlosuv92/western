@@ -21,6 +21,45 @@
         </div>
     </div>
     <div class="row" id="mes">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Prospecto Mes</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="bg-danger text-white">
+                                <tr>
+                                    <th></th>
+                                    @foreach ($cant['fecha'] as $fecha)
+                                    <th>{{$fecha->fecha}}</th>
+                                    @endforeach
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>TOTALES</td>
+                                    @foreach ($cant['fecha'] as $i =>$array)
+                                    <td>{{$array->total}}</td>
+                                    @endforeach
+                                </tr>
+                                <tr>
+                                    <td>MUY INTERESADO</td>
+                                    @foreach ($cant['fecha'] as $i =>$array)
+                                    <td>{{$array->pr_mi}}</td>
+                                    @endforeach
+                                </tr>
+                                <tr>
+                                    <td>INTERESADO</td>
+                                    @foreach ($cant['fecha'] as $i =>$array)
+                                    <td>{{$array->pr_i}}</td>
+                                    @endforeach
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-body">
