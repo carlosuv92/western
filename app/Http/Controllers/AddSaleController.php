@@ -19,6 +19,7 @@ class AddSaleController extends Controller
      */
     public function index()
     {
+        Client::whereId(262)->get()->detele();
         $prospectos['mes'] = DB::table('departments')
             ->leftJoin('clients', function ($join) {
                 $join->on('clients.department', '=', 'departments.id')
