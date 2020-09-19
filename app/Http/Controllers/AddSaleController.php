@@ -26,8 +26,8 @@ class AddSaleController extends Controller
                     ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
             })
             ->select('departments.name', DB::raw("count(clients.id) as total"))
-            ->whereNotIn('departments.name',["LIMA"])
-            ->groupBy('departments.name')->orderBy('total','desc')
+            ->whereNotIn('departments.name', ["LIMA"])
+            ->groupBy('departments.name')->orderBy('total', 'desc')
             ->get();
 
         $prospectos['dia'] = DB::table('departments')
@@ -38,10 +38,15 @@ class AddSaleController extends Controller
                     ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
             })
             ->select('departments.name', DB::raw("count(clients.id) as total"))
-            ->whereNotIn('departments.name',["LIMA"])
-            ->groupBy('departments.name')->orderBy('total','desc')
+            ->whereNotIn('departments.name', ["LIMA"])
+            ->groupBy('departments.name')->orderBy('total', 'desc')
             ->get();
 
+
+        $cant['fecha'] = DB::select("SELECT count(CAST(c.created_at AS DATE)) as tot_fecha,
+                                                    CAST(c.created_at AS DATE) as fecha FROM clients c
+                                    where status=1 GROUP by fecha");
+        dd($cant['fecha']);
         return view('dashboard.prospect', [
             'prospectos' => $prospectos,
             'title' => 'Prospectos',
