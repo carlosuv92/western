@@ -18,13 +18,16 @@ Auth::routes();
 Route::get('/', function () {
     if (Auth::user()) {
         return redirect('dashboard/admin');
-    } else {
+    } if (Auth::user()->hasRole('supervisor_seller')) {
+        return redirect('dashboard/super');
+    }else {
         return redirect('/login');
     }
 });
 
 Route::prefix('dashboard')->group(function () {
     Route::get('/prospect','AddSaleController@index')->name('prospect.dashboard');
+    Route::get('/super','SupervisorController@index')->name('super.dashboard');
     Route::get('/admin', 'HomeController@index')->name('home');
 });
 
