@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class SupervisorController extends Controller
 {
@@ -13,6 +15,42 @@ class SupervisorController extends Controller
      */
     public function index()
     {
+
+        $user = \Auth::user();
+
+        $cant['fecha'] = DB::select("SELECT count(CAST(c.created_at AS DATE)) as total,
+                                                    CAST(c.created_at AS DATE) as fecha FROM clients c
+                                    where status = 1 and " . $user->department . " GROUP by fecha");
+        $cant['prioridad_mi'] = DB::select("SELECT count(CAST(c.created_at AS DATE)) as total,
+                                                    CAST(c.created_at AS DATE) as fecha FROM clients c
+                                            where status = 1 and " . $user->department . " and priority=2 GROUP by fecha");
+
+        $cant['prioridad_i'] = DB::select("SELECT count(CAST(c.created_at AS DATE)) as total,
+                                                            CAST(c.created_at AS DATE) as fecha FROM clients c
+                                            where status = 1 and " . $user->department . " and priority=1 GROUP by fecha");
+
+        $contratos['mes'] = DB::table('departments')
+            ->leftJoin('clients', function ($join) {
+                $join->on('clients.department', '=', 'departments.id')
+                    ->where('clients.status', '2')
+                    ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
+            })
+            ->select('departments.name', DB::raw("count(clients.id) as total"))
+            ->where('departments.id', \Auth::user()->department)
+            ->groupBy('departments.name')
+            ->first();
+
+        $contratos['dia'] = DB::table('departments')
+            ->leftJoin('clients', function ($join) {
+                $join->on('clients.department', '=', 'departments.id')
+                    ->where('clients.status', '2')->whereDay('clients.created_at', '=', Carbon::now()->day)
+                    ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
+            })
+            ->select('departments.name', DB::raw("count(clients.id) as total"))
+            ->where('departments.id', \Auth::user()->department)
+            ->groupBy('departments.name')
+            ->first();
+
         $prospectos['mes'] = DB::table('departments')
             ->leftJoin('clients', function ($join) {
                 $join->on('clients.department', '=', 'departments.id')
@@ -20,33 +58,20 @@ class SupervisorController extends Controller
                     ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
             })
             ->select('departments.name', DB::raw("count(clients.id) as total"))
-            ->whereNotIn('departments.name', ["LIMA"])
-            ->groupBy('departments.name')->orderBy('total', 'desc')
-            ->get();
+            ->where('departments.id', \Auth::user()->department)
+            ->groupBy('departments.name')
+            ->first();
 
         $prospectos['dia'] = DB::table('departments')
             ->leftJoin('clients', function ($join) {
                 $join->on('clients.department', '=', 'departments.id')
-                    ->where('clients.status', '1')
-                    ->whereDay('clients.created_at', '=', Carbon::now()->day)
+                    ->where('clients.status', '1')->whereDay('clients.created_at', '=', Carbon::now()->day)
                     ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
             })
             ->select('departments.name', DB::raw("count(clients.id) as total"))
-            ->whereNotIn('departments.name', ["LIMA"])
-            ->groupBy('departments.name')->orderBy('total', 'desc')
-            ->get();
-
-
-        $cant['fecha'] = DB::select("SELECT count(CAST(c.created_at AS DATE)) as total,
-                                                    CAST(c.created_at AS DATE) as fecha FROM clients c
-                                    where status = 1 and department <> 1 GROUP by fecha");
-        $cant['prioridad_mi'] = DB::select("SELECT count(CAST(c.created_at AS DATE)) as total,
-                                                    CAST(c.created_at AS DATE) as fecha FROM clients c
-                                            where status = 1 and department <> 1 and priority=2 GROUP by fecha");
-
-        $cant['prioridad_i'] = DB::select("SELECT count(CAST(c.created_at AS DATE)) as total,
-                                                            CAST(c.created_at AS DATE) as fecha FROM clients c
-                                            where status = 1 and department <> 1 and priority=1 GROUP by fecha");
+            ->where('departments.id', \Auth::user()->department)
+            ->groupBy('departments.name')
+            ->first();
 
         foreach ($cant['fecha'] as $cantidad) {
             $cantidad->pr_mi = 0;
@@ -62,8 +87,9 @@ class SupervisorController extends Controller
             }
         }
         return view('dashboard.supervisor', [
-            'prospectos' => $prospectos,
             'cant' => $cant,
+            'contratos' => $contratos,
+            'prospectos' => $prospectos,
             'title' => 'Prospectos',
             'breadcrumb' => 'admin'
         ]);

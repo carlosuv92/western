@@ -16,12 +16,12 @@ Route::post('/prospecto','AddSaleController@store')->name('prospecto.store');
 Auth::routes();
 
 Route::get('/', function () {
-    if (Auth::user()) {
-        return redirect('dashboard/admin');
+    if (!Auth::user()) {
+        return redirect('/login');
     } if (Auth::user()->hasRole('supervisor_seller')) {
         return redirect('dashboard/super');
     }else {
-        return redirect('/login');
+        return redirect('dashboard/admin');
     }
 });
 

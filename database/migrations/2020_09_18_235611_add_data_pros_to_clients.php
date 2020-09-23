@@ -23,13 +23,14 @@ class AddDataProsToClients extends Migration
             $table->string('referencia')->nullable();
             $table->string('neg_correo')->nullable();
             $table->string('geo')->nullable();
-            $table->enum('tipo_local', ['easy', 'hard'])->nullable();
+            $table->enum('tipo_local', ['otro', 'alquilado'])->nullable();
             $table->date('fecha_ins')->nullable();
             $table->string('cli_department')->nullable();
             $table->string('cli_district')->nullable();
             $table->string('cli_province')->nullable();
             $table->string('cli_correo')->nullable();
             $table->date('fech_nac')->nullable();
+            $table->date('fech_venc')->nullable();
             $table->enum('estado_civil', ['soltero', 'casado', 'viudo', 'divorciado'])->nullable();
 
             $table->string('cony_nom')->nullable();

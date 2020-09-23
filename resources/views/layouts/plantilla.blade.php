@@ -34,7 +34,8 @@
         .swal-footer {
             text-align: center !important;
         }
-        .error{
+
+        .error {
             border-color: red;
             box-shadow: 0 0 0 0.2rem rgba(239, 110, 110, 0.25);
         }
@@ -550,7 +551,11 @@
                             </div>
                             <!-- End User Profile-->
                         </li>
+                        @if (\Auth::user()->hasRole('supervisor_seller'))
+                        @include('menu.super')
+                        @else
                         @include('menu.admin')
+                        @endif
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
