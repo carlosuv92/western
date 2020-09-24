@@ -13,20 +13,18 @@
                 <div class="form-row">
                     <div class="col-md-6 mb-6">
                         <label>VENDEDOR</label>
-                        <select class="form-control custom-select" id="seller" name="seller">
-                            <option value="" selected disabled hidden>SELECCIONA VENDEDOR</option>
-                            @foreach ($sellers as $seller)
-                            <option value="{{$seller->id}}">{{$seller->surname}} {{$seller->name}}</option>
+                        <select class="form-control custom-select" id="department" name="department">
+                            <option value="" selected disabled hidden>SELECCIONA DEPARTAMENTO</option>
+                            @foreach ($departments as $depa)
+                            <option value="{{$depa->id}}">{{$depa->surname}} {{$depa->name}}</option>
                             @endforeach
                         </select>
 
                     </div>
                     <div class="col-md-6 mb-6">
                         <label>DEPARTAMENTO</label>
-                        <input type="text" class="form-control" placeholder="SELECCIONA VENDEDOR" id="department_v"
-                            name="department_v" required readonly>
-                        <input type="text" class="form-control" placeholder="SELECCIONA VENDEDOR" id="department"
-                            name="department" required hidden>
+                        <select class="form-control custom-select" id="seller" name="seller">
+                        </select>
                     </div>
                 </div>
             </div>
@@ -234,16 +232,17 @@
 @endsection
 @push('scripts')
 <script>
-    $('#seller').on('change', function(){
-    var url = '{{ route("get.dseller", ":id") }}';
+    $('#department').on('change', function(){
+        var url = '{{ route("get.dseller", ":id") }}';
     url = url.replace(':id', this.value);
     $.ajax({
         url: url,
         type: "GET",
         success: function(data){
-            console.log(data)
-            $('#department').val(data.department);
-            $('#department_v').val(data.name);
+            $.each(data,function(key, data) {
+                $("#seller").append('<option value="" selected disabled hidden>SELECCIONA VENDEDOR</option>');
+                $("#seller").append('<option value='+data.id+'>'+data.name+'</option>');
+            });
         }
     });
    })

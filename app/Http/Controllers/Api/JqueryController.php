@@ -11,7 +11,7 @@ use App\User;
 class JqueryController extends Controller
 {
     public function getDepartmentSeller($id){
-        return User::where('users.id',$id)->select('departments.name','users.department')->Join('departments','departments.id','=','users.department')->first();
+        return User::where('department',$id)->select('id','name','surname')->get();
     }
 
     public function getDistrito($id){

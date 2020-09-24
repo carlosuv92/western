@@ -55,7 +55,7 @@ class ContractController extends Controller
     public function create()
     {
         $documents  = ClientDocument::all();
-        $departments  = Department::all();
+        $departments  = Department::whereNotIn('id',[1])->get();
         $services =  TypeServices::all();
         $v_departments = Departamento::whereIn('id', [13, 14, 20])->get();
         $sellers = User::whereHas('roles', function ($q) {
