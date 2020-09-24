@@ -140,6 +140,7 @@ class ContractController extends Controller
             $contract = new Contract();
             $contract->status = 1;
             $contract->back_office = \Auth::id();
+            $contract->created_at = request('created_at');
             $contract->type_service = 1;
             $contract->seller = request('seller');
             $contract->department = request('department');

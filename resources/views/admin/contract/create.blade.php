@@ -11,7 +11,7 @@
                 <h4 class="card-title m-b-20">DATOS DE VENDEDOR</h4>
                 <hr>
                 <div class="form-row">
-                    <div class="col-md-6 mb-6">
+                    <div class="col-md-4 mb-4">
                         <label>VENDEDOR</label>
                         <select class="form-control custom-select" id="department" name="department">
                             <option value="" selected disabled hidden>SELECCIONA DEPARTAMENTO</option>
@@ -21,10 +21,15 @@
                         </select>
 
                     </div>
-                    <div class="col-md-6 mb-6">
+                    <div class="col-md-4 mb-4">
                         <label>DEPARTAMENTO</label>
                         <select class="form-control custom-select" id="seller" name="seller">
                         </select>
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                        <label>FECHA VENTA </label>
+                        <input type="date" class="form-control" id="created_at" name="created_at">
                     </div>
                 </div>
             </div>
@@ -132,7 +137,8 @@
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>DIRECCION (SEGÚN DNI)</label>
-                        <input type="text" class="form-control" id="address" name="address" placeholder="DIRECCION (SEGÚN DNI)" required>
+                        <input type="text" class="form-control" id="address" name="address"
+                            placeholder="DIRECCION (SEGÚN DNI)" required>
                     </div>
 
                     <div class="col-md-6 mb-6 m-t-10">
@@ -178,16 +184,19 @@
 
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>NOMBRES Y APELLIDOS (CONYUGE)</label>
-                        <input placeholder="NOMBRES Y APELLIDOS (CONYUGE)" type="text" class="cony form-control" id="cony_nom" name="cony_nom" >
+                        <input placeholder="NOMBRES Y APELLIDOS (CONYUGE)" type="text" class="cony form-control"
+                            id="cony_nom" name="cony_nom">
                     </div>
 
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>DIRECCION (CONYUGE)</label>
-                        <input placeholder="DIRECCION (CONYUGE)" type="text" class="cony form-control" id="cony_direccion" name="cony_direccion" >
+                        <input placeholder="DIRECCION (CONYUGE)" type="text" class="cony form-control"
+                            id="cony_direccion" name="cony_direccion">
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>DEPARTAMENTO (CONYUGE)</label>
-                        <select class="cony form-control custom-select" id="cony_department" name="cony_department" required>
+                        <select class="cony form-control custom-select" id="cony_department" name="cony_department"
+                            required>
                             <option value="" selected disabled hidden>SELECCIONA DEPARTAMENTO</option>
                             @foreach ($v_departments as $depa)
                             <option value="{{$depa->id}}">{{$depa->name}}</option>
@@ -196,29 +205,34 @@
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>PROVINCIA (CONYUGE)</label>
-                        <select class="cony form-control custom-select" id="cony_province" name="cony_province" required>
+                        <select class="cony form-control custom-select" id="cony_province" name="cony_province"
+                            required>
                         </select>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>DISTRITO (CONYUGE)</label>
-                        <select class="cony form-control custom-select" id="cony_district" name="cony_district" required>
+                        <select class="cony form-control custom-select" id="cony_district" name="cony_district"
+                            required>
                         </select>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>CORREO (CONYUGE)</label>
-                        <input placeholder="CORREO (CONYUGE)" type="text" class="cony form-control" id="cony_correo" name="cony_correo" >
+                        <input placeholder="CORREO (CONYUGE)" type="text" class="cony form-control" id="cony_correo"
+                            name="cony_correo">
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>NRO DE CELULAR (CONYUGE)</label>
-                        <input placeholder="NRO DE CELULAR (CONYUGE)" type="text" class="cony form-control" id="cony_cellphone" name="cony_cellphone" >
+                        <input placeholder="NRO DE CELULAR (CONYUGE)" type="text" class="cony form-control"
+                            id="cony_cellphone" name="cony_cellphone">
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>DNI (CONYUGE)</label>
-                        <input placeholder="DNI (CONYUGE)" type="text" class="cony form-control" id="cony_dni" name="cony_dni" >
+                        <input placeholder="DNI (CONYUGE)" type="text" class="cony form-control" id="cony_dni"
+                            name="cony_dni">
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>FECHA DE NACIMIENTO (CONYUGE)</label>
-                        <input type="date" class="cony form-control" id="cony_fech_nac" name="cony_fech_nac" >
+                        <input type="date" class="cony form-control" id="cony_fech_nac" name="cony_fech_nac">
                     </div>
                 </div>
             </div>
