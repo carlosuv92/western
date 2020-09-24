@@ -12,8 +12,9 @@
                 <hr>
                 <div class="form-row">
                     <div class="col-md-6 mb-6">
-                        <label for="validationCustom03">VENDEDOR</label>
+                        <label>VENDEDOR</label>
                         <select class="form-control custom-select" id="seller" name="seller">
+                            <option value="" selected disabled hidden>SELECCIONA VENDEDOR</option>
                             @foreach ($sellers as $seller)
                             <option value="{{$seller->id}}">{{$seller->surname}} {{$seller->name}}</option>
                             @endforeach
@@ -21,98 +22,91 @@
 
                     </div>
                     <div class="col-md-6 mb-6">
-                        <label for="validationCustom03">DEPARTAMENTO</label>
-                        <select class="form-control custom-select" id="department" name="department">
-                            @foreach ($departments as $depa)
-                            <option value="{{$depa->id}}">{{$depa->name}}</option>
-                            @endforeach
-                        </select>
-
+                        <label>DEPARTAMENTO</label>
+                        <input type="text" class="form-control" placeholder="SELECCIONA VENDEDOR" id="department_v"
+                            name="department_v" required readonly>
+                        <input type="text" class="form-control" placeholder="SELECCIONA VENDEDOR" id="department"
+                            name="department" required hidden>
                     </div>
                 </div>
             </div>
         </div>
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title m-b-20">DATOS EMPRESA</h4>
+                <h4 class="card-title m-b-20">DATOS EMPPRESA</h4>
                 <hr>
                 <div class="form-row">
                     <div class="col-md-6 mb-6">
-                        <label for="validationCustom02">RAZON SOCIAL</label>
+                        <label>RAZON SOCIAL</label>
                         <input type="text" class="form-control" placeholder="NEGOCIO" id="razon_social"
                             name="razon_social" required>
                     </div>
                     <div class="col-md-6 mb-6">
-                        <label for="validationCustom02">NOMBRE COMERCIAL (LICENCIA Y RUC)</label>
+                        <label>NOMBRE COMERCIAL (LICENCIA Y RUC)</label>
                         <input type="text" class="form-control" placeholder="NEGOCIO" id="negocio" name="negocio"
                             required>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">LOCAL PROPIO O ALQ.</label>
+                        <label>LOCAL PROPIO O ALQ.</label>
                         <select class="form-control custom-select" id="tipo_local" name="tipo_local">
                             <option value="1">PROPIO</option>
                             <option value="2">ALQUILADO</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">NUMERO RUC</label>
+                        <label>NUMERO RUC</label>
                         <input type="text" class="form-control" id="ruc" name="ruc" placeholder="RUC" required>
                     </div>
 
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">FECHA DE INICIO ACTIVIDADES</label>
-                        <input type="date" class="form-control" id="ant_negocio" name="ant_negocio" required>
+                        <label>FECHA DE INICIO ACTIVIDADES</label>
+                        <input type="date" class="form-control" id="ant_sunat" name="ant_sunat">
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">GIRO NEGOCIO</label>
+                        <label>GIRO NEGOCIO</label>
                         <input type="text" class="form-control" placeholder="GIRO NEGOCIO" id="giro" name="giro"
                             required>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">DIRECCION (LICENCIA DE FUNCIONAMIENTO)</label>
+                        <label>DIRECCION (LICENCIA DE FUNCIONAMIENTO)</label>
                         <input type="text" class="form-control" placeholder="DIRECCION NEGOCIO" id="neg_direccion"
                             name="neg_direccion" required>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">DEPARTAMENTO</label>
-                        <select class="form-control custom-select" id="neg_department" name="neg_department">
-                            @foreach ($departments as $depa)
+                        <label>DEPARTAMENTO</label>
+                        <select class="form-control custom-select" id="neg_department" name="neg_department" required>
+                            <option value="" selected disabled hidden>SELECCIONA DEPARTAMENTO</option>
+                            @foreach ($v_departments as $depa)
                             <option value="{{$depa->id}}">{{$depa->name}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">PROVINCIA</label>
-                        <select class="form-control custom-select" id="neg_province" name="neg_province">
-                            @foreach ($departments as $depa)
-                            <option value="{{$depa->id}}">{{$depa->name}}</option>
-                            @endforeach
+                        <label>PROVINCIA</label>
+                        <select class="form-control custom-select" id="neg_province" name="neg_province" required>
                         </select>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">DISTRITO</label>
-                        <select class="form-control custom-select" id="neg_district" name="neg_district">
-                            @foreach ($departments as $depa)
-                            <option value="{{$depa->id}}">{{$depa->name}}</option>
-                            @endforeach
+                        <label>DISTRITO</label>
+                        <select class="form-control custom-select" id="neg_district" name="neg_district" required>
                         </select>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">REFERENCIA</label>
+                        <label>REFERENCIA</label>
                         <input type="text" class="form-control" placeholder="REFERENCE" id="referencia"
                             name="referencia" required>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">GEOLOCALIZACION</label>
-                        <input type="text" class="form-control" placeholder="COORDENADAS" id="geo" name="geo" required>
+                        <label>GEOLOCALIZACION</label>
+                        <input type="text" class="form-control" placeholder="COORDENADAS" id="geo" name="geo">
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">TELEFONO</label>
+                        <label>TELEFONO</label>
                         <input type="text" class="form-control" placeholder="TELEFONO" id="cellphone" name="cellphone"
                             required>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">EMAIL</label>
+                        <label>EMAIL</label>
                         <input type="email" class="form-control" placeholder="EMAIL" id="neg_correo" name="neg_correo"
                             required>
                     </div>
@@ -126,7 +120,7 @@
                 <hr>
                 <div class="form-row">
                     <div class="col-md-6 mb-6">
-                        <label for="validationCustom02">TIPO DOC</label>
+                        <label>TIPO DOC</label>
                         <select class="form-control custom-select" id="doc" name="doc">
                             @foreach ($documents as $doc)
                             <option value="{{$doc->id}}">{{$doc->name}}</option>
@@ -134,50 +128,45 @@
                         </select>
                     </div>
                     <div class="col-md-6 mb-6">
-                        <label for="validationCustom02">DOCUMENTO</label>
+                        <label>DOCUMENTO</label>
                         <input type="text" class="form-control" id="document" name="document" placeholder="DOCUMENTO"
                             required>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom04">DIRECCION (SEGÚN DNI)</label>
-                        <input type="text" class="form-control" id="address" name="address" required>
+                        <label>DIRECCION (SEGÚN DNI)</label>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="DIRECCION (SEGÚN DNI)" required>
                     </div>
 
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">DEPARTAMENTO (SEGÚN DNI)</label>
-                        <select class="form-control custom-select" id="cli_department" name="cli_department">
-                            @foreach ($departments as $depa)
+                        <label>DEPARTAMENTO (SEGÚN DNI)</label>
+                        <select class="form-control custom-select" id="cli_department" name="cli_department" required>
+                            <option value="" selected disabled hidden>SELECCIONA DEPARTAMENTO</option>
+                            @foreach ($v_departments as $depa)
                             <option value="{{$depa->id}}">{{$depa->name}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">PROVINCIA (SEGÚN DNI)</label>
-                        <select class="form-control custom-select" id="cli_province" name="cli_province">
-                            @foreach ($departments as $depa)
-                            <option value="{{$depa->id}}">{{$depa->name}}</option>
-                            @endforeach
+                        <label>PROVINCIA (SEGÚN DNI)</label>
+                        <select class="form-control custom-select" id="cli_province" name="cli_province" required>
                         </select>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">DISTRITO (SEGÚN DNI)</label>
-                        <select class="form-control custom-select" id="cli_district" name="cli_district">
-                            @foreach ($departments as $depa)
-                            <option value="{{$depa->id}}">{{$depa->name}}</option>
-                            @endforeach
+                        <label>DISTRITO (SEGÚN DNI)</label>
+                        <select class="form-control custom-select" id="cli_district" name="cli_district" required>
                         </select>
                     </div>
 
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">FECHA NACIMIENTO </label>
+                        <label>FECHA NACIMIENTO </label>
                         <input type="date" class="form-control" id="fech_nac" name="fech_nac">
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">FECHA DE VENCIMIENTO (DNI)O </label>
+                        <label>FECHA DE VENCIMIENTO (DNI)O </label>
                         <input type="date" class="form-control" id="fech_venc" name="fech_venc">
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">ESTADO CIVIL (DNI)</label>
+                        <label>ESTADO CIVIL (DNI)</label>
                         <select class="form-control custom-select" id="estado_civil" name="estado_civil">
                             <option value="1">SOLTERO</option>
                             <option value="2">CASADO</option>
@@ -187,56 +176,51 @@
                     </div>
                 </div>
                 <hr>
-                <div class="form-row">
+                <div class="form-row d-none" id="conyuge">
 
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom04">NOMBRES Y APELLIDOS (CONYUGE)</label>
-                        <input type="text" class="form-control" id="cony_nom" name="cony_nom" required>
+                        <label>NOMBRES Y APELLIDOS (CONYUGE)</label>
+                        <input placeholder="NOMBRES Y APELLIDOS (CONYUGE)" type="text" class="cony form-control" id="cony_nom" name="cony_nom" >
                     </div>
 
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom04">DIRECCION (CONYUGE)</label>
-                        <input type="text" class="form-control" id="cony_direccion" name="cony_direccion" required>
+                        <label>DIRECCION (CONYUGE)</label>
+                        <input placeholder="DIRECCION (CONYUGE)" type="text" class="cony form-control" id="cony_direccion" name="cony_direccion" >
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">DEPARTAMENTO (CONYUGE)</label>
-                        <select class="form-control custom-select" id="cony_department" name="cony_department">
-                            @foreach ($departments as $depa)
+                        <label>DEPARTAMENTO (CONYUGE)</label>
+                        <select class="cony form-control custom-select" id="cony_department" name="cony_department" required>
+                            <option value="" selected disabled hidden>SELECCIONA DEPARTAMENTO</option>
+                            @foreach ($v_departments as $depa)
                             <option value="{{$depa->id}}">{{$depa->name}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">PROVINCIA (CONYUGE)</label>
-                        <select class="form-control custom-select" id="cony_province" name="cony_province">
-                            @foreach ($departments as $depa)
-                            <option value="{{$depa->id}}">{{$depa->name}}</option>
-                            @endforeach
+                        <label>PROVINCIA (CONYUGE)</label>
+                        <select class="cony form-control custom-select" id="cony_province" name="cony_province" required>
                         </select>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom02">DISTRITO (CONYUGE)</label>
-                        <select class="form-control custom-select" id="cony_district" name="cony_district">
-                            @foreach ($departments as $depa)
-                            <option value="{{$depa->id}}">{{$depa->name}}</option>
-                            @endforeach
+                        <label>DISTRITO (CONYUGE)</label>
+                        <select class="cony form-control custom-select" id="cony_district" name="cony_district" required>
                         </select>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom04">CORREO (CONYUGE)</label>
-                        <input type="text" class="form-control" id="cony_correo" name="cony_correo" required>
+                        <label>CORREO (CONYUGE)</label>
+                        <input placeholder="CORREO (CONYUGE)" type="text" class="cony form-control" id="cony_correo" name="cony_correo" >
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom04">NRO DE CELULAR CONYUGE)</label>
-                        <input type="text" class="form-control" id="cony_cellphone" name="cony_cellphone" required>
+                        <label>NRO DE CELULAR (CONYUGE)</label>
+                        <input placeholder="NRO DE CELULAR (CONYUGE)" type="text" class="cony form-control" id="cony_cellphone" name="cony_cellphone" >
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom04">DNI (CONYUGE)</label>
-                        <input type="text" class="form-control" id="cony_dni" name="cony_dni" required>
+                        <label>DNI (CONYUGE)</label>
+                        <input placeholder="DNI (CONYUGE)" type="text" class="cony form-control" id="cony_dni" name="cony_dni" >
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
-                        <label for="validationCustom04">FECHA DE NACIMIENTO (CONYUGE)</label>
-                        <input type="date" class="form-control" id="cony_fech_nac" name="cony_fech_nac" required>
+                        <label>FECHA DE NACIMIENTO (CONYUGE)</label>
+                        <input type="date" class="cony form-control" id="cony_fech_nac" name="cony_fech_nac" >
                     </div>
                 </div>
             </div>
@@ -248,3 +232,132 @@
 
 </div>
 @endsection
+@push('scripts')
+<script>
+    $('#seller').on('change', function(){
+    var url = '{{ route("get.dseller", ":id") }}';
+    url = url.replace(':id', this.value);
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(data){
+            console.log(data)
+            $('#department').val(data.department);
+            $('#department_v').val(data.name);
+        }
+    });
+   })
+</script>
+
+{{-- SELECT NEGOCIO --}}
+<script>
+    $('#neg_department').on('change', function(){
+    var url = '{{ route("get.provincia", ":id") }}';
+    url = url.replace(':id', this.value);
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(data){
+            $.each(data,function(key, data) {
+                $("#neg_province").append('<option value="" selected disabled hidden>SELECCIONA PROVINCIA</option>');
+                $("#neg_province").append('<option value='+data.id+'>'+data.name+'</option>');
+            });
+        }
+    });
+   })
+
+   $('#neg_province').on('change', function(){
+    var url = '{{ route("get.distrito", ":id") }}';
+    url = url.replace(':id', this.value);
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(data){
+            $.each(data,function(key, data) {
+                $("#neg_district").append('<option value="" selected disabled hidden>SELECCIONA DISTRITO</option>');
+                $("#neg_district").append('<option value='+data.id+'>'+data.name+'</option>');
+            });
+        }
+    });
+   })
+</script>
+
+
+{{-- SELECT CLIENTE --}}
+<script>
+    $('#cli_department').on('change', function(){
+    var url = '{{ route("get.provincia", ":id") }}';
+    url = url.replace(':id', this.value);
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(data){
+            $.each(data,function(key, data) {
+                $("#cli_province").append('<option value="" selected disabled hidden>SELECCIONA PROVINCIA</option>');
+                $("#cli_province").append('<option value='+data.id+'>'+data.name+'</option>');
+            });
+        }
+    });
+   })
+
+   $('#cli_province').on('change', function(){
+    var url = '{{ route("get.distrito", ":id") }}';
+    url = url.replace(':id', this.value);
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(data){
+            $.each(data,function(key, data) {
+                $("#cli_district").append('<option value="" selected disabled hidden>SELECCIONA DISTRITO</option>');
+                $("#cli_district").append('<option value='+data.id+'>'+data.name+'</option>');
+            });
+        }
+    });
+   })
+</script>
+
+{{-- SELECT CONYUGUE --}}
+<script>
+    $('#cony_department').on('change', function(){
+    var url = '{{ route("get.provincia", ":id") }}';
+    url = url.replace(':id', this.value);
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(data){
+            $.each(data,function(key, data) {
+                $("#cony_province").append('<option value="" selected disabled hidden>SELECCIONA PROVINCIA</option>');
+                $("#cony_province").append('<option value='+data.id+'>'+data.name+'</option>');
+            });
+        }
+    });
+   })
+
+   $('#cony_province').on('change', function(){
+    var url = '{{ route("get.distrito", ":id") }}';
+    url = url.replace(':id', this.value);
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(data){
+            $.each(data,function(key, data) {
+                $("#cony_district").append('<option value="" selected disabled hidden>SELECCIONA DISTRITO</option>');
+                $("#cony_district").append('<option value='+data.id+'>'+data.name+'</option>');
+            });
+        }
+    });
+   })
+</script>
+<script>
+    $('#estado_civil').on('change', function(){
+    $(".cony").val("");
+    id=this.value;
+    if(id==2){
+        $("#conyuge").removeClass('d-none');
+    }else{
+        $("#conyuge").addClass('d-none');
+    }
+   })
+</script>
+
+@endpush

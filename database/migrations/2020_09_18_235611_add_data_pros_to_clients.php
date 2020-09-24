@@ -15,7 +15,7 @@ class AddDataProsToClients extends Migration
     {
         Schema::table('clients', function (Blueprint $table) {
             $table->string('razon_social')->nullable();
-            $table->string('ant_negocio')->nullable();
+            $table->date('ant_sunat')->nullable();
             $table->string('neg_department')->nullable();
             $table->string('neg_district')->nullable();
             $table->string('neg_province')->nullable();
@@ -43,6 +43,7 @@ class AddDataProsToClients extends Migration
             $table->string('cony_dni')->nullable();
             $table->date('cony_fech_nac')->nullable();
             $table->enum('cony_estado_civil', ['soltero', 'casado', 'viudo', 'divorciado'])->nullable();
+
 
 
 
