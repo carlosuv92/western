@@ -58,7 +58,7 @@
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>NUMERO RUC</label>
-                        <input type="text" class="form-control" id="ruc" name="ruc" placeholder="RUC" required>
+                        <input type="text" class="form-control" id="ruc" name="ruc" placeholder="RUC">
                     </div>
 
                     <div class="col-md-6 mb-6 m-t-10">
@@ -68,7 +68,7 @@
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>GIRO NEGOCIO</label>
                         <input type="text" class="form-control" placeholder="GIRO NEGOCIO" id="giro" name="giro"
-                            required>
+                            >
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>DIRECCION (LICENCIA DE FUNCIONAMIENTO)</label>
@@ -97,7 +97,7 @@
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>REFERENCIA</label>
                         <input type="text" class="form-control" placeholder="REFERENCE" id="referencia"
-                            name="referencia" required>
+                            name="referencia" >
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>GEOLOCALIZACION</label>
@@ -133,12 +133,12 @@
                     <div class="col-md-6 mb-6">
                         <label>DOCUMENTO</label>
                         <input type="text" class="form-control" id="document" name="document" placeholder="DOCUMENTO"
-                            required>
+                            >
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>DIRECCION (SEGÚN DNI)</label>
                         <input type="text" class="form-control" id="address" name="address"
-                            placeholder="DIRECCION (SEGÚN DNI)" required>
+                            placeholder="DIRECCION (SEGÚN DNI)">
                     </div>
 
                     <div class="col-md-6 mb-6 m-t-10">
