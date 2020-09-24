@@ -255,7 +255,7 @@
         success: function(data){
             $.each(data,function(key, data) {
                 $("#seller").append('<option value="" selected disabled hidden>SELECCIONA VENDEDOR</option>');
-                $("#seller").append('<option value='+data.id+'>'+data.name+'</option>');
+                $("#seller").append('<option value='+data.id+'>'+data.surname+' '+data.name+'</option>');
             });
         }
     });
@@ -355,7 +355,7 @@
         success: function(data){
             $.each(data,function(key, data) {
                 $("#cony_district").append('<option value="" selected disabled hidden>SELECCIONA DISTRITO</option>');
-                $("#cony_district").append('<option value='+data.id+'>'+data.surname+' '+data.name+'</option>');
+                $("#cony_district").append('<option value='+data.id+'>'+data.name+'</option>');
             });
         }
     });
