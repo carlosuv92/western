@@ -187,7 +187,7 @@
             { 'data': 'idcont',"visible": false},
             { 'data': 'fecha'},
             { 'data': 'name'},
-            { 'data': 'phone'},
+            { 'data': 'cellphone'},
             { 'data': 'document'},
             { 'data': 'negocio'},
             { 'data': 'ruc'},
