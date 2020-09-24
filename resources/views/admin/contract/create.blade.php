@@ -195,8 +195,7 @@
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>DEPARTAMENTO (CONYUGE)</label>
-                        <select class="cony form-control custom-select" id="cony_department" name="cony_department"
-                            required>
+                        <select class="cony form-control custom-select" id="cony_department" name="cony_department">
                             <option value="" selected disabled hidden>SELECCIONA DEPARTAMENTO</option>
                             @foreach ($v_departments as $depa)
                             <option value="{{$depa->id}}">{{$depa->name}}</option>
@@ -205,14 +204,12 @@
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>PROVINCIA (CONYUGE)</label>
-                        <select class="cony form-control custom-select" id="cony_province" name="cony_province"
-                            required>
+                        <select class="cony form-control custom-select" id="cony_province" name="cony_province">
                         </select>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
                         <label>DISTRITO (CONYUGE)</label>
-                        <select class="cony form-control custom-select" id="cony_district" name="cony_district"
-                            required>
+                        <select class="cony form-control custom-select" id="cony_district" name="cony_district">
                         </select>
                     </div>
                     <div class="col-md-6 mb-6 m-t-10">
