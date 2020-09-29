@@ -1,14 +1,6 @@
 @extends('layouts.plantilla')
 
 @section('content')
-{{--
-<div class="d-flex justify-content-center" style="text-align: center;">
-    <div class="col-lg-3 col-md-6">
-        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"
-            data-whatever="@fat">Configurar Precio Pockets</button>
-    </div>
-</div>
-<br>--}}
 
 <div class="card-body" style="background-color: #ff98008a">
     <div class="row">
@@ -30,8 +22,8 @@
     </div>
     <div class="row" id="mes">
 
-        <div class="col-lg-3 col-md-6">
-            <div class="card">
+        <div class="col-lg-3 col-md-4">
+            <div class="card" data-toggle="modal" data-target="#Contrato-modal-4" style="cursor:pointer;">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
@@ -62,8 +54,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card">
+        <div class="col-lg-3 col-md-4">
+            <div class="card" data-toggle="modal" data-target="#Contrato-modal-1" style="cursor:pointer;">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
@@ -96,7 +88,7 @@
         </div>
 
         <div class="col-lg-3 col-md-6">
-            <div class="card">
+            <div class="card" data-toggle="modal" data-target="#Contrato-modal-0" style="cursor:pointer;">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
@@ -128,7 +120,7 @@
             </div>
         </div>
         <div class="col-lg-3 col-md-6">
-            <div class="card">
+            <div class="card" data-toggle="modal" data-target="#Contrato-modal-2" style="cursor:pointer;">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
@@ -754,6 +746,160 @@
         </div>
     </div>
 </div>
+{{--Modales--}}
+
+<!-- sample modal content -->
+<div id="Contrato-modal-0" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">VENTAS DEL MES EN {{$contratos['mes'][0]->name}}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <table class="table v-middle">
+                    <thead>
+                        <tr class="bg-light">
+                            <th class="border-top-0">Vendedor</th>
+                            <th style="text-align:center;" class="border-top-0">Cantidad de Ventas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($seller_contratos as $contrato)
+                        @if ($contrato->department == 4) {{--Chiclayo--}}
+                        <tr>
+                            <td>{{$contrato->name}} {{$contrato->surname}}</td>
+                            <td style="text-align:center;">{{$contrato->total}}</td>
+                        </tr>
+                        @endif
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- sample modal content -->
+<div id="Contrato-modal-1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">VENTAS DEL MES EN {{$contratos['mes'][1]->name}}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <table class="table v-middle">
+                    <thead>
+                        <tr class="bg-light">
+                            <th class="border-top-0">Vendedor</th>
+                            <th style="text-align:center;" class="border-top-0">Cantidad de Ventas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($seller_contratos as $contrato)
+                        @if ($contrato->department == 3) {{--Chimbote--}}
+                        <tr>
+                            <td>{{$contrato->name}} {{$contrato->surname}}</td>
+                            <td style="text-align:center;">{{$contrato->total}}</td>
+                        </tr>
+                        @endif
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- sample modal content -->
+<div id="Contrato-modal-2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">VENTAS DEL MES EN {{$contratos['mes'][2]->name}}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <table class="table v-middle">
+                    <thead>
+                        <tr class="bg-light">
+                            <th class="border-top-0">Vendedor</th>
+                            <th style="text-align:center;" class="border-top-0">Cantidad de Ventas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($seller_contratos as $contrato)
+                        @if ($contrato->department == 5) {{--Ica--}}
+                        <tr>
+                            <td>{{$contrato->name}} {{$contrato->surname}}</td>
+                            <td style="text-align:center;">{{$contrato->total}}</td>
+                        </tr>
+                        @endif
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- sample modal content -->
+<div id="Contrato-modal-4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">VENTAS DEL MES EN {{$contratos['mes'][4]->name}}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <table class="table v-middle">
+                    <thead>
+                        <tr class="bg-light">
+                            <th class="border-top-0">Vendedor</th>
+                            <th style="text-align:center;" class="border-top-0">Cantidad de Ventas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($seller_contratos as $contrato)
+                        @if ($contrato->department == 2) {{--Trux--}}
+                        <tr>
+                            <td>{{$contrato->name}} {{$contrato->surname}}</td>
+                            <td style="text-align:center;">{{$contrato->total}}</td>
+                        </tr>
+                        @endif
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 @endsection
 @push('scripts')
 <script>

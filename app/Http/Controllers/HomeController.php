@@ -75,9 +75,38 @@ class HomeController extends Controller
             ->get();
 
 
+        $seller_contratos = DB::table('users')
+            ->leftJoin('contracts', function ($join) {
+                $join->on('contracts.seller', '=', 'users.id')
+                    ->whereMonth('contracts.created_at', '=', Carbon::now()->month)->whereYear('contracts.created_at', '=', Carbon::now()->year);
+            })
+            ->Join('role_user', function ($join) {
+                $join->on('role_user.user_id', '=', 'users.id')
+                    ->where('role_user.role_id', 3);
+            })
+            ->select('users.name', 'users.surname', 'users.department', DB::raw("count(contracts.id) as total"))
+            ->groupBy('users.name')
+            ->get();
+
+        $seller_prospectos = DB::table('users')
+            ->leftJoin('clients', function ($join) {
+                $join->on('clients.lead_by', '=', 'users.id')
+                    ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
+            })
+            ->Join('role_user', function ($join) {
+                $join->on('role_user.user_id', '=', 'users.id')
+                    ->where('role_user.role_id', 3);
+            })
+            ->select('users.name', 'users.surname', 'users.department', DB::raw("count(clients.id) as total"))
+            ->groupBy('users.name')
+            ->get();
+
+
         return view('dashboard.principal', [
             'contratos' => $contratos,
             'prospectos' => $prospectos,
+            'seller_prospectos' => $seller_prospectos,
+            'seller_contratos' => $seller_contratos,
             'title' => 'Dashboard',
             'breadcrumb' => 'admin'
         ]);

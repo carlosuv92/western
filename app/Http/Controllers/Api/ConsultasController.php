@@ -116,4 +116,34 @@ class ConsultasController extends Controller
         $datatable = DataTables::of($querys)->make(true);
         return $datatable;
     }
+
+    public function getContractsDep($id)
+    {
+        $querys = \DB::table('users')
+        ->leftJoin('contracts', function ($join) {
+            $join->on('contracts.seller', '=', 'users.id')
+                ->where('contracts.department', $id)
+                ->whereMonth('contracts.created_at', '=', Carbon::now()->month)->whereYear('contracts.created_at', '=', Carbon::now()->year);
+        })
+        ->select('users.name','users.surname', DB::raw("count(contracts.id) as total"))
+        ->groupBy('users.name')
+        ->get();
+        $datatable = DataTables::of($querys)->make(true);
+        return $datatable;
+    }
+
+    public function getProspectDep($id)
+    {
+        $querys = \DB::table('users')
+        ->leftJoin('clients', function ($join) {
+            $join->on('clients.lead_by', '=', 'users.id')
+                ->where('clients.department', $id)
+                ->whereMonth('clients.created_at', '=', Carbon::now()->month)->whereYear('clients.created_at', '=', Carbon::now()->year);
+        })
+        ->select('users.name','users.surname', DB::raw("count(clients.id) as total"))
+        ->groupBy('users.name')
+        ->get();
+        $datatable = DataTables::of($querys)->make(true);
+        return $datatable;
+    }
 }
