@@ -279,10 +279,6 @@
         </div>
     </div>
 </form>
-<p align="right">
-    <button class="btn btn-primary" type="submit">APLICAR VENTA</button>
-</p>
-</form>
 
 </div>
 @endsection
