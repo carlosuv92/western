@@ -13,8 +13,10 @@ class CreateContractsTable extends Migration
      */
     public function up()
     {
+
         Schema::create('contracts', function (Blueprint $table) {
             $table->bigIncrements('id');
+
 
             $table->unsignedBigInteger('status')->default(1);
             $table->foreign('status')
@@ -51,13 +53,6 @@ class CreateContractsTable extends Migration
 
             $table->foreign('folder')
                 ->references('id')->on('folder_statuses')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
-
-            $table->unsignedBigInteger('department')->nullable();
-            $table->foreign('department')
-                ->references('id')->on('departments')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 

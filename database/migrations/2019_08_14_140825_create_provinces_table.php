@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCellphoneToClients extends Migration
+class CreateProvincesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class AddCellphoneToClients extends Migration
      */
     public function up()
     {
-        Schema::table('clients', function (Blueprint $table) {
-            if (!Schema::hasColumn('clients', 'cellphone')) {
-                $table->boolean('cellphone')->default(0)->after('phone');
-            }
+        Schema::create('provinces', function (Blueprint $table) {
+            $table->string('id')->primary();
+            $table->string('name', 100);
+            $table->string('department_id', 100);
+            $table->timestamps();
         });
     }
 
@@ -27,8 +28,6 @@ class AddCellphoneToClients extends Migration
      */
     public function down()
     {
-        Schema::table('clients', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('provinces');
     }
 }

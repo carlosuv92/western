@@ -17,10 +17,15 @@
     <link href="{{asset('files/assets/libs/morris.js/morris.css')}}" rel="stylesheet">
     <link href="{{asset('files/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css')}}" rel="stylesheet">
     <link href="{{asset('files/dist/css/jquery.datetimepicker.min.css')}}" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="{{asset('files/assets/extra-libs/css-chart/css-chart.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('files/assets/libs/select2/dist/css/select2.min.css')}}">
     <!-- DATETIMEPICKER-->
     <link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css')}}">
+    <!-- STEP CSS-->
+    <link href="{{asset('files/assets/libs/jquery-steps/jquery.steps.css')}}" rel="stylesheet">
+    <link href="{{asset('files/assets/libs/jquery-steps/steps.css')}}" rel="stylesheet">
+
     <link rel="stylesheet" href="{{asset('files/filtro.css')}}">
     <!-- Custom CSS -->
     <link href="{{asset('files/dist/css/style.min.css')}}" rel="stylesheet">
@@ -632,6 +637,8 @@
     <script src="{{asset('files/dist/js/waves.js')}}"></script>
     <!--Menu sidebar -->
     <script src="{{asset('files/dist/js/sidebarmenu.js')}}"></script>
+
+    <script src="{{asset('files/assets/libs/jquery-steps/build/jquery.steps.min.js')}}"></script>
     <!--Custom JavaScript -->
     <script src="{{asset('files/dist/js/custom.min.js')}}"></script>
     <script src="{{asset('files/assets/libs/sweetalert/dist/sweetalert.min.js')}}"></script>

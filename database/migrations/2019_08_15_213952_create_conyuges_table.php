@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientsTable extends Migration
+class CreateConyugesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateClientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('clients', function (Blueprint $table) {
+        Schema::create('conyuges', function (Blueprint $table) {
             $table->bigIncrements('id');
-
-            $table->unsignedBigInteger('status')->default(1);
-            $table->foreign('status')->references('id')->on('client_statuses')->onUpdate('cascade')->onDelete('cascade');
-
             $table->string('name');
+            $table->unsignedBigInteger('client')->default(1);
+            $table->foreign('client')->references('id')->on('clients')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('document')->unique();
             $table->unsignedBigInteger('user_document')->default(1);
@@ -40,10 +38,6 @@ class CreateClientsTable extends Migration
             $table->date('dob');
             $table->enum('status_civil', ['soltero', 'casado', 'viudo', 'divorciado']);
 
-            $table->enum('priority', ['MUY INTERESADO', 'INTERESADO'])->nullable();
-            $table->unsignedBigInteger('lead_by')->nullable();
-            $table->foreign('lead_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-
             $table->timestamps();
         });
     }
@@ -55,6 +49,6 @@ class CreateClientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clients');
+        Schema::dropIfExists('conyuges');
     }
 }

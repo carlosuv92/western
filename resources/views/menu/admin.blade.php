@@ -4,12 +4,13 @@
         <span class="hide-menu">Dashboard</span>
     </a>
 </li>
-<li class="sidebar-item">
-    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('prospect.dashboard')}}" aria-expanded="false">
-        <i class="sl-icon-pie-chart"></i>
-        <span class="hide-menu">Detalle Prospecto</span>
-    </a>
-</li>
+{{--    <li class="sidebar-item">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('prospect.dashboard')}}" aria-expanded="false">
+                <i class="sl-icon-pie-chart"></i>
+                <span class="hide-menu">Detalle Prospecto</span>
+            </a>
+        </li>
+--}}
 <li class="sidebar-item">
     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)
                " aria-expanded="false">

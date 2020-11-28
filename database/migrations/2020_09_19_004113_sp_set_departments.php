@@ -14,16 +14,16 @@ class SpSetDepartments extends Migration
     public function up()
     {
         DB::statement("
-            INSERT INTO `departamentos` (`id`, `name`) VALUES
-            ('01', 'Amazonas'),
-            ('02', 'Áncash'),
-            ('03', 'Apurímac'),
-            ('04', 'Arequipa'),
-            ('05', 'Ayacucho'),
-            ('06', 'Cajamarca'),
-            ('07', 'Callao'),
-            ('08', 'Cusco'),
-            ('09', 'Huancavelica'),
+            INSERT INTO `departments` (`id`, `name`) VALUES
+            ('1', 'Amazonas'),
+            ('2', 'Áncash'),
+            ('3', 'Apurímac'),
+            ('4', 'Arequipa'),
+            ('5', 'Ayacucho'),
+            ('6', 'Cajamarca'),
+            ('7', 'Callao'),
+            ('8', 'Cusco'),
+            ('9', 'Huancavelica'),
             ('10', 'Huánuco'),
             ('11', 'Ica'),
             ('12', 'Junín'),

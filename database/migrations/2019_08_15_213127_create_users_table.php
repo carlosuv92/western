@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->boolean('active')->default(true);
             $table->string('name');
             $table->string('surname');
-            $table->unsignedBigInteger('department')->nullable();
+            $table->string('department')->nullable();
             $table->foreign('department')
                 ->references('id')->on('departments')
                 ->onUpdate('cascade')
@@ -34,6 +34,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
     }
 
     /**

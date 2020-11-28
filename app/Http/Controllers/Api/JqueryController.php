@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Distrito;
+use App\District;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Provincia;
+use App\Province;
 use App\User;
 
 class JqueryController extends Controller
@@ -15,11 +15,11 @@ class JqueryController extends Controller
     }
 
     public function getDistrito($id){
-        return Distrito::where('province_id',$id)->select('id','name')->get();
+        return District::where('province_id',$id)->select('id','name')->get();
     }
 
     public function getProvincia($id){
-        return Provincia::where('department_id',$id)->select('id','name')->get();
+        return Province::where('department_id',$id)->select('id','name')->get();
     }
 
 }

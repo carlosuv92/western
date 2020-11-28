@@ -1,6 +1,14 @@
 @extends('layouts.plantilla')
 @section('content')
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <!-- COMIENZO DEL FORMULARIO -->
 <div class="row">
     <div class="col-12">
@@ -43,7 +51,7 @@
                                 <label class="control-label">Ciudad</label>
                                 <select class="form-control custom-select" name="department">
                                     @foreach ($departments as $dep)
-                                    <option value={{$dep->id}}>{{$dep->name}}</option>
+                                    <option value={{ $dep->id }}>{{$dep->name}}</option>
                                     @endforeach
                                 </select>
                                 <small class="form-control-feedback"> Seleccione Ciudad</small>

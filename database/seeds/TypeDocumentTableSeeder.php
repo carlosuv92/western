@@ -24,7 +24,7 @@ class TypeDocumentTableSeeder extends Seeder
             ]);
         }
 
-        $c_doc = ['DNI', 'RUC', 'CE'];
+        $c_doc = ['DNI'];
 
         for ($i = 0; $i < count($c_doc); $i++) {
             DB::table('client_documents')->insert([

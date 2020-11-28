@@ -40,17 +40,6 @@ class DatosTableSeeder extends Seeder
             ]);
         }
 
-        $department = ['LIMA','TRUJILLO', 'CHIMBOTE','CHICLAYO','ICA'];
-
-        for ($i = 0; $i < count($department); $i++) {
-            DB::table('departments')->insert([
-                'id' => $i + 1,
-                'name' => $department[$i],
-                'updated_at' => $current_date,
-                'created_at' => $current_date,
-            ]);
-        }
-
         $cl_status = ['PROSPECTO', 'CLIENTE'];
 
         for ($i = 0; $i < count($cl_status); $i++) {

@@ -38,14 +38,16 @@ class ConsultasController extends Controller
             ->leftJoin('type_services as ts', 'ts.id', '=', 'contracts.type_service')
             ->leftJoin('client_contract as cc', 'cc.contract_id', '=', 'contracts.id')
             ->leftJoin('clients as c', 'c.id', '=', 'cc.client_id')
+            ->leftJoin('locals as l', 'l.client', '=', 'c.id')
             ->leftJoin('users as a', 'a.id', '=', 'contracts.supervisor_seller')
             ->leftJoin('users as b', 'b.id', '=', 'contracts.seller')
             ->select(
                 'c.*',
                 'contracts.id as idcont',
-                'contracts.department as department',
-                'contracts.department as department',
+                'c.department as department',
                 'ts.name as tipo',
+                'l.name as negocio',
+                'l.ruc',
                 DB::raw("DATE_FORMAT(contracts.created_at, '%Y/%m/%d') as fecha"),
                 DB::raw('CONCAT(a.surname, " ", a.name) AS super'),
                 DB::raw('CONCAT(b.surname, " ", b.name) AS vendedor')

@@ -23,28 +23,28 @@
                     <table id="t_contratos" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
-                                <th style="display: none;">'ID</th>
-                                <th>'Nombre</th>
-                                <th>'Apellido</th>
-                                <th>'Rol</th>
-                                <th>'Documento</th>
-                                <th>'Correo</th>
-                                <th>'Estado</th>
-                                <th style="width:10%">'Opciones</th>
+                                <th style="display: none;">ID</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Rol</th>
+                                <th>Documento</th>
+                                <th>Correo</th>
+                                <th>Estado</th>
+                                <th style="width:10%">Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th style="display: none;">'ID</th>
-                                <th>'Nombre</th>
-                                <th>'Apellido</th>
-                                <th>'Rol</th>
-                                <th>'Documento</th>
-                                <th>'Correo</th>
-                                <th>'Estado</th>
-                                <th>'Opciones</th>
+                                <th style="display: none;">ID</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Rol</th>
+                                <th>Documento</th>
+                                <th>Correo</th>
+                                <th>Estado</th>
+                                <th>Opciones</th>
                             </tr>
                         </tfoot>
                     </table>

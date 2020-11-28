@@ -29,7 +29,8 @@ class UserController extends Controller
     public function create()
     {
         $documents = TypeDocument::orderBy('name')->get();
-        $departments = Department::orderBy('name')->get();
+        $departments = Department::where('status',1)->orderBy('name')->get();
+
         $supervisors = User::whereHas('roles', function ($q) {
             $q->where('name', 'supervisor_seller');
         })->orderBy('surname', 'asc')->where('active', 1)->get();
@@ -49,7 +50,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $documents = TypeDocument::orderBy('name')->get();
-        $departments = Department::orderBy('name')->get();
+        $departments = Department::where('status',1)->orderBy('name')->get();
 
         $supervisors = User::whereHas('roles', function ($q) {
             $q->where('name', 'supervisor_seller');
@@ -77,7 +78,15 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'email' => 'required|unique:users',
+            'document' => 'required|unique:users',
+        ];
+        $customMessages = [
+            'unique' => 'Cuidado!! el campo :attribute debe ser unico',
+        ];
 
+        $request->validate($rules, $customMessages);
         DB::beginTransaction();
         try {
             $user = new User();

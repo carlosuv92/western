@@ -15,14 +15,12 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         $role_admin = Role::where('name', 'admin')->first();
-
-        $role_admin = Role::where('name', 'admin')->first();
         $user = new User();
         $user->name = 'CARLOS FELIPE';
         $user->surname = 'URCIA VEGA';
         $user->email = 'carlosuv92@gmail.com';
-        $user->department = 1;
-        $user->type_document = 1;
+        $user->department = '1';
+        $user->type_document = '1';
         $user->document = '12345678';
         $user->password = bcrypt('123456');
         $user->save();
@@ -33,8 +31,8 @@ class UserTableSeeder extends Seeder
         $user->name = 'JOHN';
         $user->surname = 'ZAFRA PINDAY';
         $user->email = 'john.zafra@vconnections.pe';
-        $user->department = 1;
-        $user->type_document = 1;
+        $user->department = '1';
+        $user->type_document = '1';
         $user->document = '12345679';
         $user->password = bcrypt('123456');
         $user->save();
@@ -45,8 +43,8 @@ class UserTableSeeder extends Seeder
         $user->name = 'MAYERLYS';
         $user->surname = 'MOLINA';
         $user->email = 'mayerlys.molina@vconnections.pe';
-        $user->department = 1;
-        $user->type_document = 1;
+        $user->department = '1';
+        $user->type_document = '1';
         $user->document = '12345678';
         $user->password = bcrypt('123456');
         $user->save();
@@ -56,8 +54,8 @@ class UserTableSeeder extends Seeder
         $user->name = 'ABEL';
         $user->surname = 'PARICAHUA';
         $user->email = 'abel.paricahua@vconnections.pe';
-        $user->department = 1;
-        $user->type_document = 1;
+        $user->department = '1';
+        $user->type_document = '1';
         $user->document = '1234567';
         $user->password = bcrypt('123456');
         $user->save();
