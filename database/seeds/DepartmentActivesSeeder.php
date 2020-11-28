@@ -13,4 +13,5 @@ class DepartmentActivesSeeder extends Seeder
     {
         DB::table('departments')->whereIn('id',['14','15','8','13','23'])->update(['status' => 1]);
     }
+
 }
