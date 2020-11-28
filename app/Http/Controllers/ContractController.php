@@ -130,6 +130,7 @@ class ContractController extends Controller
 
             if ($client->status_civil == 2) {
                 $cony = new Conyuge();
+                $cony->client = $client->id;
                 $cony->name = request('cony_name');
                 $cony->user_document = 1;
                 $cony->document = request('cony_document');
